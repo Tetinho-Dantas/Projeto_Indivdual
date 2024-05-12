@@ -1,0 +1,236 @@
+@font-face {
+   font-family: 'kgprimary';
+   src: url('/site_institucional/KGPrimaryItalics.ttf');
+}
+
+html{
+    height: 100%;
+    width: 100%;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+ #navbar{
+    width: 100%;
+    height: 12vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -20px -20px 100px #f3e4f8;
+    border-bottom: 2px solid #884788;
+ }
+ 
+
+ #nav_link{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10%;
+    flex-direction: row;
+    padding-right: 5%;
+    font-family: MPlus;
+    
+ }
+ .link{
+    text-decoration: none;
+    color: black;
+ }
+
+ #nav_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 100%;
+    /* background-color: aqua;    */
+ }
+ #logo{
+    height: 90%;
+ }
+
+ #home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 2.5%;
+    background-color: white;
+ }
+
+ #tela1{
+    height: 80vh;
+    width: 48vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 100px;
+    margin-left: -60px;
+
+ }
+ #p_tela1{
+    font-family: 'kgprimary';
+    font-size: 65px;
+    color: #884788;
+
+ }
+
+
+ #tela2{
+    margin-right: -50px;
+    height: 80vh;
+    width: 43vw;
+    background-color: coral;
+    display: flex;
+    margin-top: 100px;
+
+ }
+ #imagem_tela{
+    height: 100%;
+    width: 100%;
+ } 
+
+ #servicos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: row;
+    gap: 2.5%;
+    background-color: rgb(255, 255, 255);
+    
+ }
+/*  primeira div na div serviços*/
+ #tela01{
+    height: 95vh;
+    width: 45%;
+    background-color: #884788;
+    align-items: baseline;
+    /* border: #000000 1px solid; */
+    justify-content: center;    
+    margin-left: 20px;
+    text-align: center;
+    border-radius: 20px;
+ }
+
+ .H1{
+   justify-content: center;
+   align-items: center;
+   font-size: 23px;
+ }
+ #p_tela01{
+    font-size: 10px;
+    margin-left: 4%;
+    margin-top: 1%;
+
+    
+ }
+ .tela01_1{
+    margin-left: 7.5%;
+    height: 66%;
+    width: 84%;
+    margin-top: -10px;
+    /* background-color: rgb(116, 85, 75); */
+    /* border: #000000 solid 1px; */
+ }
+
+ #ima{
+   width: 100%;
+   height: 100%;
+   border-radius: 8px;
+ }
+/* segunda div */
+ #tela02{
+    height: 95vh;
+    width: 45%;
+    background-color: #884788;
+    /* border: #000000 solid 1px; */
+    text-align: center;
+    border-radius: 20px;
+ } 
+ .tela02_2{
+   margin-left: 8.2%;
+   height: 66%;
+   width: 84%;
+   margin-top: -10px ;
+   /* background-color: rgb(116, 85, 75); */
+   /* border: #000000 solid 1px; */
+}
+
+#ima2{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+ }
+ /* terciera div */
+
+ #tela03{
+    height: 95%;
+    width: 45%;
+    background-color: #884788;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 20px;
+
+ }
+
+ .tela03_3{
+   margin-left: 8.2%;
+   height: 54%;
+   width: 84%;
+   margin-top: -10px ;
+   /* background-color: rgb(116, 85, 75); */
+   /* border: #000000 solid 1px; */
+}
+
+#ima3{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+ }
+
+
+/* a div acaba aqui */
+ #contato{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: rgb(43, 218, 218);
+ }
+
+ #sobre_nos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: rgb(43, 218, 66);
+ }
+
+ #footer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: rgb(43, 218, 218);
+ }
