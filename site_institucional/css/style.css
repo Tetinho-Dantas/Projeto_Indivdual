@@ -3,6 +3,12 @@
    src: url('/site_institucional/KGPrimaryItalics.ttf');
 }
 
+@font-face {
+   font-family: 'raspberie';
+   src: url('/site_institucional/RaspberiePersonalUseOnly.ttf');
+}
+
+
 html{
     height: 100%;
     width: 100%;
@@ -41,24 +47,90 @@ body{
     gap: 10%;
     flex-direction: row;
     padding-right: 5%;
-    font-family: MPlus;
+    font-family: 'raspberie';
     
  }
  .link{
     text-decoration: none;
     color: black;
  }
+ #link_home{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
 
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_servicos{
+   width: 6.2vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_equipe{
+   width: 5.4vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_sobre_nos{
+   width: 7.3vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .link-button {
+   width: 6vw; /* Defina a largura desejada */
+   height: 2.5vw; /* Ajuste conforme necessário */
+   display: inline-flex;
+   align-items: center;
+   font-size: 1.5vw;
+   background-color: rgb(236, 181, 234);
+   border: 3px solid #884788;
+   border-radius: 50px;
+   justify-content: center;
+   color: white;
+   font-style: normal;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   cursor: pointer;
+   transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+   text-decoration: none;
+}
+
+.link-button:hover {
+   background-color: #884788;
+   border-color: rgb(236, 181, 234);
+   color: white;
+}
  #nav_logo{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width: 15%;
     height: 100%;
     /* background-color: aqua;    */
  }
  #logo{
     height: 90%;
+    /* width: 40%; */
  }
 
  #home{
@@ -82,7 +154,7 @@ body{
  }
  #p_tela1{
     font-family: 'kgprimary';
-    font-size: 65px;
+    font-size: 70px;
     color: #884788;
 
  }
@@ -380,3 +452,22 @@ body{
     gap: 2.5%;
     background-color: #884788;
  }
+
+ #left_dash {
+   width: 300px;
+   background-color: #161b22; /* Cor de fundo semelhante ao GitHub */
+   color: #c9d1d9; /* Cor do texto semelhante ao GitHub */
+   font-family: Arial, sans-serif; /* Fonte semelhante ao GitHub */
+   padding: 20px;
+   border-radius: 6px; /* Borda arredondada */
+}
+
+#left_dash p {
+   margin: 8px 0; /* Espaçamento entre os parágrafos */
+}
+
+#left_dash .h3 {
+   font-size: 20px; /* Tamanho da fonte para o título */
+   font-weight: bold; /* Negrito para o título */
+   margin-bottom: 16px; /* Espaçamento inferior para o título */
+}
