@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Tela Login</h1>
+    <input type="text" name="" id="email_input" placeholder="email">
+    <br>
+    <input type="password" name="" id="senha_input" placeholder="senha">
+    <br><br>
+    <button onclick="entrar()">Entrar</button>
+    <br>
+    <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function entrar() {
+        var emailVar = document.getElementById("email_input").value;
+        var senhaVar = document.getElementById("senha_input").value;
+        var cardErro = document.getElementById("cardErro");
+        var mensagemErro = document.getElementById("mensagem_erro");
+
+        if (emailVar === "" || senhaVar === "") {
+            cardErro.style.display = "block";
+            mensagemErro.innerText = "Por favor, preencha todos os campos.";
+            return;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        })
+        .then(function (resposta) {
+            if (!resposta.ok) {
+                throw new Error("Houve um erro ao tentar realizar o login!");
+            }
+            return resposta.json();
+        })
+        .then(function (json) {
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
+            setTimeout(function () {
+                window.location.href = "./dashboard/cards.html";
+            }, 1000); // Apenas para exibir o loading
+        })
+        .catch(function (erro) {
+            console.error(erro);
+            cardErro.style.display = "block";
+            mensagemErro.innerText = "Credenciais inválidas. Por favor, tente novamente.";
+        });
+    }
+</script>
