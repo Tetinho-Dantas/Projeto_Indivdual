@@ -1,67 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="./css/login_style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400&family=Source+Sans+3:wght@300;400&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <h1>Tela Login</h1>
-    <input type="text" name="" id="email_input" placeholder="email">
-    <br>
-    <input type="password" name="" id="senha_input" placeholder="senha">
-    <br><br>
-    <button onclick="entrar()">Entrar</button>
-    <br>
-    <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <div class="pai">
+        <div class="voltar">
+            <a href="index.html"> <img src="imagens/botao-voltar.png" class="img2"></a>
+        </div>
+
+        <h1>Faça o login</h1>
+        <br><br><br>
+
+        <div class="input-field">
+            <input type="text" name="E-mail" id="email_input" required="required" autocomplete="off">
+            <span>E-mail</span>
+        </div>
+
+        <div class="input-field">
+            <input type="password" name="Senha" id="senha_input" required="required" autocomplete="off">
+            <span>Senha</span>
+        </div>
+
+        <div class="checkbox">
+            <p>Exibir senha</p>  
+            <input type="checkbox" onclick="mostrarsenha()"> 
+        </div>
+
+        <a style="color:#884788;" href="">Esqueceu a senha?</a>
+        <p>Não tem uma conta? <a style="color:#884788;" href="Cadastro.html">Clique aqui</a></p>
+        <br>
+
+        <div id="error-message" style="color: red; display: none;"></div>
+
+        <button class="botao" onclick="entrar()">Fazer Login</button>
     </div>
-    
 </body>
 </html>
 
 <script>
-    function entrar() {
-        var emailVar = document.getElementById("email_input").value;
-        var senhaVar = document.getElementById("senha_input").value;
-        var cardErro = document.getElementById("cardErro");
-        var mensagemErro = document.getElementById("mensagem_erro");
+    function quest() {
+        var respostas = [];
+        var questoes = document.querySelectorAll('.questoes');
+        var perguntaNum = 1; // Inicia com a pergunta número 1
 
-        if (emailVar === "" || senhaVar === "") {
-            cardErro.style.display = "block";
-            mensagemErro.innerText = "Por favor, preencha todos os campos.";
-            return;
+        for (var i = 0; i < questoes.length; i++) {
+            var question = questoes[i];
+            var selectedOption = question.querySelector('input[type="radio"]:checked');
+            var textarea = question.querySelector('textarea');
+
+            var resposta = null;
+            if (selectedOption) {
+                resposta = selectedOption.value;
+            } else if (textarea) {
+                resposta = textarea.value;
+            }
+
+            // Adiciona a resposta ao array de respostas com a numeração da pergunta
+            respostas.push({ pergunta: perguntaNum, resposta: resposta });
+            perguntaNum++; // Incrementa o número da pergunta
         }
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        })
-        .then(function (resposta) {
-            if (!resposta.ok) {
-                throw new Error("Houve um erro ao tentar realizar o login!");
-            }
-            return resposta.json();
-        })
-        .then(function (json) {
-            sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.id;
-            sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
-            setTimeout(function () {
-                window.location.href = "./dashboard/cards.html";
-            }, 1000); // Apenas para exibir o loading
-        })
-        .catch(function (erro) {
-            console.error(erro);
-            cardErro.style.display = "block";
-            mensagemErro.innerText = "Credenciais inválidas. Por favor, tente novamente.";
-        });
+        if (respostas.length === 0) {
+            alert('Por favor, preencha todas as questões antes de enviar.');
+        } else {
+            fetch("/quiz/respostas", { 
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(respostas)
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    alert('Respostas enviadas com sucesso!');
+                } else {
+                    resposta.text().then(texto => {
+                        alert('Erro ao enviar respostas: ' + texto);
+                    });
+                }
+            }).catch(function (erro) {
+                alert('Houve um erro ao tentar enviar as respostas!');
+                console.error(erro);
+            });
+        }
     }
 </script>

@@ -1,0 +1,753 @@
+@font-face {
+   font-family: 'kgprimary';
+   src: url('/site_institucional/fonts/KGPrimaryItalics.ttf');
+}
+
+@font-face {
+   font-family: 'raspberie';
+   src: url('/site_institucional/fonts/RaspberiePersonalUseOnly.ttf');
+}
+
+@font-face {
+   font-family: 'Poetsen';
+   src: url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+}
+
+
+
+html{
+    height: 100%;
+    width: 100%;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'kgprimary', sans-serif;
+}
+ #navbar{
+    width: 100%;
+    height: 12vh;
+    background-color: rgb(235, 220, 243);
+    /* position: fixed; */
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -20px -20px 100px #e6bff1;
+    border-bottom: 3px solid; /* Espessura e estilo da borda */
+    border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+    border-image-slice: 1; /* Define a divisão uniforme do gradiente */
+ }
+
+
+ #nav_link{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10%;
+    flex-direction: row;
+    padding-right: 5%;
+    font-family: 'raspberie';
+
+ }
+ .link{
+    text-decoration: none;
+    color: black;
+ }
+ #link_home{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_servicos{
+   width: 6.2vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_equipe{
+   width: 5.4vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_sobre_nos{
+   width: 7.3vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .link-button {
+   width: 6vw; /* Defina a largura desejada */
+   height: 2.5vw; /* Ajuste conforme necessário */
+   display: inline-flex;
+   align-items: center;
+   font-size: 1.5vw;
+   background-color: rgb(236, 181, 234);
+   border: 3px solid #884788;
+   border-radius: 50px;
+   justify-content: center;
+   color: white;
+   font-style: normal;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   cursor: pointer;
+   transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+   text-decoration: none;
+}
+
+.link-button:hover {
+   background-color: #884788;
+   border-color: rgb(236, 181, 234);
+   color: white;
+}
+ #nav_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* background-color: aqua;    */
+ }
+ #logo{
+    height: 90%;
+    /* width: 40%; */
+ }
+
+ #home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 2.5%;
+    background-color: rgb(255, 255, 255);
+ }
+
+ #tela1{
+    height: 80vh;
+    width: 48vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 10px;
+    margin-left: -60px;
+
+ }
+ #p_tela1{
+    font-family: 'Poetsen',sans-serif;
+    font-size: 70px;
+    color: #884788;
+    margin-top: -20px;
+
+ }
+
+
+ #tela2{
+    margin-right: -50px;
+    height: 80vh;
+    width: 43vw;
+    background-color: rgb(235, 220, 243);
+    display: flex;
+    margin-top: 100px;
+
+ }
+ #imagem_tela{
+    height: 100%;
+    width: 100%;
+ }
+
+ #servicos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: row;
+    gap: 2.5%;
+    background-color: rgb(235, 220, 243);
+
+ }
+/*  primeira div na div serviços*/
+ #tela01{
+    height: 95vh;
+    width: 45%;
+    background: linear-gradient( to bottom, #a55aa5, #420942);
+    align-items: baseline;
+    /* border: #000000 1px solid; */
+    justify-content: center;
+    margin-left: 20px;
+    text-align: center;
+    border-radius: 20px;
+    
+    box-shadow: 10px 10px 9.5px 5px #d8b5d8;
+ }
+
+ #tela01:hover {
+   background: linear-gradient(to bottom, #d488c1, #791660); /* Alteração do gradiente */
+   transform: scale(1.05); /* Aumenta o tamanho em 5% */
+   box-shadow: 10px 10px 9.5px 5px #c39ac3; /* Altera a cor da sombra */
+}
+
+ .H01{
+   justify-content: center;
+   align-items: center;
+   font-size: 26px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: white;
+ }
+ #tela01:hover .H01 {
+   font-size: 30px;
+   color: rgb(107, 16, 134);
+}
+
+#tela01:hover .p_tela01 {
+   font-size: 13px;
+   color: rgb(107, 16, 134);
+}
+
+ .p_tela01{
+    font-size: 13px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+
+ .paragrafo{
+   font-size: 17px;
+   margin-left: 6%;
+   margin-right: 6%;
+   margin-top: 0.5%;
+   margin-bottom: 3%;
+   
+
+}
+ .tela01_1{
+    margin-left: 7.5%;
+    height: 66%;
+    width: 84%;
+    margin-top: -10px;
+    /* background-color: rgb(116, 85, 75); */
+    /* border: #000000 solid 1px; */
+ }
+
+ #ima{
+   width: 100%;
+   height: 100%;
+   border-radius: 8px;
+ }
+ #ima:hover {
+   opacity: 0.1; /* Reduz a opacidade para 80% */
+}
+
+/* segunda div */
+ #tela02{
+    height: 95vh;
+    width: 45%;
+    background: linear-gradient( to bottom, #a55aa5, #420942);
+    /* border: #000000 solid 1px; */
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 9.5px 5px #d8b5d8;
+ }
+
+ #tela02:hover {
+   background: linear-gradient(to bottom, #d488c1, #791660); /* Alteração do gradiente */
+   transform: scale(1.05); /* Aumenta o tamanho em 5% */
+   box-shadow: 10px 10px 9.5px 5px #c39ac3; /* Altera a cor da sombra */
+}
+ .tela02_2{
+   margin-left: 8.2%;
+   height: 66%;
+   width: 84%;
+   margin-top: -10px ;
+   /* background-color: rgb(116, 85, 75); */
+   /* border: #000000 solid 1px; */
+}
+
+#ima2{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+ }
+
+ #ima2:hover {
+   opacity: 0.1; /* Reduz a opacidade para 80% */
+}
+
+#tela02:hover .H01 {
+   font-size: 30px;
+   color: rgb(107, 16, 134);
+}
+
+#tela02:hover .p_tela01 {
+   font-size: 13px;
+   color: rgb(107, 16, 134);
+}
+ /* terciera div */
+
+ #tela03{
+    height: 95%;
+    width: 45%;
+    background: linear-gradient( to bottom, #a55aa5, #420942);
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 9.5px 5px #d8b5d8;
+ }
+
+ #tela03:hover {
+   background: linear-gradient(to bottom, #d488c1, #791660); /* Alteração do gradiente */
+   transform: scale(1.05); /* Aumenta o tamanho em 5% */
+   box-shadow: 10px 10px 9.5px 5px #c39ac3; /* Altera a cor da sombra */
+}
+ 
+
+ .tela03_3{
+   margin-left: 8.2%;
+   height: 54%;
+   width: 84%;
+   margin-top: -10px ;
+   /* background-color: rgb(116, 85, 75); */
+   /* border: #000000 solid 1px; */
+}
+
+#ima3{
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+ }
+ #ima3:hover {
+   opacity: 0.1; /* Reduz a opacidade para 80% */
+ }
+   #tela03:hover .H01 {
+      font-size: 30px;
+      color: rgb(107, 16, 134);
+   }
+   
+   #tela03:hover .p_tela01 {
+      font-size: 13px;
+      color: rgb(107, 16, 134);
+   }
+
+/* essa div termina aqui */
+ #sobre_nos_section{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content:center;
+   flex-direction: column;
+   gap: 2.5%;
+   background-color: #9c729c;
+}
+ #sobre_nos{
+   width: 90vw;
+   height: 90vh;
+   display: flex;
+   align-items: center;
+   justify-content:center;
+   flex-direction: column;
+   gap: 2.5%;
+   border-radius: 20px;
+   background-color: #884788;
+   box-shadow: 10px 10px 10px 5px  #553855;
+
+}
+
+
+
+#tela{
+  width: 95vw;
+  height: 30vh;
+  justify-content: center;
+  /* align-items: end; */
+  margin-top: -2%;
+  text-align: justify;
+}
+
+.H2{
+  text-align: center;
+}
+
+/* a div acaba aqui */
+ #equipe{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: row;
+    /* gap: 2.5%; */
+    background-color: rgb(235, 220, 243);
+    left: auto;
+ }
+
+ #fundo_foto {
+   width: 200px;
+   height: 200px;
+   background: linear-gradient(to bottom, #c7a5c7, #3b073b);
+   justify-content: center;
+   align-items: center; /* Centralizar conteúdo verticalmente */
+   margin-left: 5px;
+   margin-top: -47vh;
+   border-radius: 50%;
+   position: relative;
+   z-index: 2;
+   overflow: hidden; /* Para esconder o conteúdo que ultrapassa as dimensões */
+}
+
+.eu {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   width: 90%; /* 100% da largura da div pai */
+   height: 90%; /* 100% da altura da div pai */
+   border-radius: 50%;
+   object-fit: cover; /* Para manter a proporção da imagem e preencher a div */
+}
+
+ #barra_dado{
+   width: 650px;
+   height: 13vh;
+   margin-left: -2vw;
+   margin-top: -47vh;
+   background-color: #884788; 
+   border-radius: 10px;
+   position: relative;
+   z-index: 1;
+
+
+ }
+
+ .div-menor1 {
+   display: flex;
+   width: 300px; /* Ajuste conforme necessário */
+   height: 80%; /* Ajuste conforme necessário */
+   background-color: rgba(255, 255, 255, 0); /* Cor de fundo da div menor */
+   float: left;
+}
+.nome{
+   font-size: 25px;
+   font-weight: bold;
+   margin-left: 45px;
+   margin-top: 30px;
+   color: white;
+}
+.div-menor2 {
+   margin-left: 30px;
+   width: 300px; /* Ajuste conforme necessário */
+   height: 80%; /* Ajuste conforme necessário */
+   background-color: rgba(255, 255, 255, 0); /* Cor de fundo da div menor */
+   float:right;
+}
+.cargo{
+   text-align: start;
+   font-size: 25px;
+   font-weight: bold;
+   margin-top: 30px;
+   margin-right: 20px;
+   color: white;
+}
+
+
+
+ #nova_barra_dado {
+   width: 625px;
+   height: 52vh;
+   margin-left: -45.9vw;
+   margin-top: 125px;
+   background-color: rgba(255, 255, 255, 0);;
+   border-radius: 10px;
+   /* flex-direction: row; */
+   display: flex; /* Exibir os filhos em linha */
+   /* justify-content: space-between; Distribuir os filhos uniformemente */
+   flex-direction: column;
+
+}
+
+.coluna1 {
+   width: 100%;
+   background-color: rgba(255, 255, 255, 0);
+   margin-top: 6.3%;
+   display: flex; /* Adicionando flexbox */
+   flex-direction: column; /* Espaçamento uniforme dos ícones */
+   margin-left: 32px;
+}
+
+/* .icon {
+   width: 120px;
+   height: 30px;
+   background-color: rgba(255, 255, 255, 0);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-bottom: 10px;
+} */
+
+   #icon_html {
+      width: 630px; /* Ajuste conforme necessário */
+      height: 60px; /* Ajuste conforme necessário */
+      background-color: #884788;
+      border-radius: 10px;
+      border: #e6bff1 2px solid;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 2%;
+      margin-top: -34px;
+      margin-left: -40px;
+      
+
+      /* margin-top: 20px; */
+
+   }
+
+   #icon_css {
+      width: 630px; /* Ajuste conforme necessário */
+      height: 60px; /* Ajuste conforme necessário */
+      background-color: #884788;
+      border-radius: 10px;
+      border: #e6bff1 2px solid;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 2%;
+      margin-top: 2px;
+      margin-left: -40px;
+   }
+
+   #icon_js {
+      width: 630px; /* Ajuste conforme necessário */
+      height: 60px; /* Ajuste conforme necessário */
+      background-color: #884788;
+      border-radius: 10px;
+      border: #e6bff1 2px solid;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 2%;
+      margin-top: 2px;
+      margin-left: -40px;
+   }
+
+   #icon_azure {
+      width: 630px; /* Ajuste conforme necessário */
+      height: 60px; /* Ajuste conforme necessário */
+      background-color: #884788;
+      border-radius: 10px;
+      border: #e6bff1 2px solid;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 2%;
+      margin-top: 2px;
+      margin-left: -40px;
+      /* background-color: white; Cor de fundo do ícone */
+   }
+   #icon_node{
+      width: 630px; /* Ajuste conforme necessário */
+      height: 60px; /* Ajuste conforme necessário */
+      background-color: #884788;
+      border-radius: 10px;
+      border: #e6bff1 2px solid;
+      align-items: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      gap: 2%;
+      margin-top: 2px;
+      margin-left: -40px;
+      /* background-color: white; Cor de fundo do ícone */
+   }
+   .legenda_html{
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      color:#fff;
+      align-items: baseline;
+   }
+   .legenda_css{
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      color:#fff;
+      align-items: baseline;
+   }
+   .legenda_js{
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      color:#fff;
+      align-items: baseline;
+   }
+   .legenda_azure{
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      color:#fff;
+      align-items: baseline;
+   }
+   .legenda_node{
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 20px;
+      color:#fff;
+      align-items: baseline;
+   }
+   .textin_html{
+      font-size: 15px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#fff;
+   }
+   .textin_css{
+      font-size: 15px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#fff;
+   }
+   .textin_js{
+      font-size: 15px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#fff;
+   }
+   .textin_node{
+      font-size: 15px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#fff;
+   }
+   .textin_azure{
+      font-size: 15px;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color:#fff;
+   }
+
+
+   
+#nova_barra_dado2 {
+   width: 480px;
+   height: 72.5vh;
+   margin-left: 2vw;
+   background-color: #996699;
+   border-radius: 10px;
+   /* flex-direction: row; */
+   display: flex; /* Exibir os filhos em linha */
+   /* justify-content: space-between; Distribuir os filhos uniformemente */
+   flex-direction: column;
+
+}
+#dentro{
+   display: flex;
+   flex-direction: column;
+   /* background: linear-gradient(to bottom, #884788, #d6bdd6, #884788);
+   border:#884788 2px solid; */
+   border-radius: 20px;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
+   text-align: justify;
+   /* margin-top: 20px; */
+   margin-left: 25px;
+   margin-right: 25px;
+   color: white;
+}
+
+.sobre_mim{
+   text-align: center;
+   color: white;
+   margin-top: 50px;
+   margin-bottom: 30px;
+}
+
+
+
+/* div equipe acaba aqui */
+ 
+
+ #footer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: #884788;
+ }
+
+ #grupo{
+   width: 65vw;
+   height: 90%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+  
+
+ }
+
+ #email, #linkedin, #github {
+   width: 20vw;
+   height: 95%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column; 
+}
+
+#email img, #linkedin img, #github img {
+   width: 80%; 
+   margin-top: 20px;
+   margin-left: 10px;
+}
+
+#email p, #linkedin p, #github p {
+   margin-top: -10px ; 
+   text-align: center;
+}
+
+#email h2, #linkedin h2, #github h2 {
+   margin-top: -2px ;
+   text-align: center; 
+}
+
+ /* footer acaba aqui */
+

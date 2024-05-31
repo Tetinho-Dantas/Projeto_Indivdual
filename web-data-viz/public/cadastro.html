@@ -1,138 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ptbr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet">
 </head>
-<body>
-    <input type="text" name="" id="nome_input" placeholder="Seu Nome">
-    <br>
-    <input type="text" name="" id="cpf_input" placeholder="xxx.xxx.xxx-xx">
-    <br>
-    <input type="text" name="" id="numero_input" placeholder="xxxxx-xxxx">
-    <br>
-    <input type="text" name="" id="endereco_input" placeholder="Seu endereco">
-    <br>
-    <input type="text" name="" id="bairro_input" placeholder="Seu Bairro">
-    <br>
-    <input type="text" name="" id="cidade_input" placeholder="Sua cidade">
-    <br>
-    <input type="text" name="" id="cep_input" placeholder="Seu cep">
-    <br>
-    <input type="text" name="" id="email_input" placeholder="">
-    <br>
-    <input type="text" name="" id="confirmacao_senha_input">
-    <br>
-    <br>
-    <button onclick="cadastrar()">Cadastrar</button>
 
-    
+<body>
+    <div class="pai">
+        <div class="voltar">
+            <a href="index.html"> <img src="imagens/botao-voltar.png" class="img2"></a>
+        </div>
+        <h1>Crie sua conta</h1>
+        <br><br>
+        <div class="input-field">
+            <input type="text" name="Nome" id="nome_input" required="required" autocomplete="off">
+            <span>Nome completo</span>
+        </div>
+        <div class="input-field">
+            <input type="text" name="E-mail" id="email_input" required="required" autocomplete="off">
+            <span>E-mail</span>
+        </div>
+        <div class="input-field">
+            <input type="password" name="Senha" id="senha_input" required="required" autocomplete="off">
+            <span>Senha</span>
+        </div>
+        <div class="input-field">
+            <input type="password" name="confSenha" id="confirmacao_senha_input" required="required" autocomplete="off">
+            <span>Confirme a senha</span>
+        </div>
+        <div class="checkbox">
+            <p>Exibir senha</p>
+            <input type="checkbox" onclick="mostrarsenha()">
+        </div>
+        <p>Já tem uma conta? <a style="color:#884788;" href="Login.html">Clique aqui</a></p>
+        <br>
+        <div id="error_message" style="color: red; display: none;"></div>
+        <button class="botao" onclick="cadastrar()">Cadastrar-se</button>
+    </div>
 </body>
 </html>
-
 <script>
-    function cadastrar() {
-      aguardar();
-  
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
-      var cpfVar = cpf_input.value;
-      var numeroVar = numero_input.value;
-      var enderecoVar = endereco_input.value;
-      var bairroVar = bairro_input.value;
-      var cidadeVar = cidade_input.value;
-      var cepVar = cep_input.value;  
-      if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == "" ||
-        cpfVar == "" ||
-        numeroVar == "" ||
-        enderecoVar == "" ||
-        bairroVar == "" ||
-        cidadeVar == "" ||
-        cepVar == "" 
-      ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-          "(Mensagem de erro para todos os campos em branco)";
-  
-        finalizarAguardar();
-        return false;
-      } else {
-        setInterval(sumirMensagem, 5000);
-      }
-  
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar,
-          cpfServer: cpfVar,
-          numeroServer: numeroVar,
-          enderecoServer: enderecoVar,
-          bairroServer: bairroVar,
-          cidadeServer: cidadeVar,
-          cepServer: cepVar
-        }),
+  function cadastrar() {
+    //Recupere o valor da nova input pelo nome do id
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var errorMessage = document.getElementById("error_message");
+
+    if (
+      nomeVar === "" ||
+      emailVar === "" ||
+      senhaVar === "" ||
+      confirmacaoSenhaVar === "" 
+    ) {
+      errorMessage.textContent = 'Por favor, preencha todos os campos.';
+      errorMessage.style.display = 'block';
+      setTimeout(sumirMensagem, 5000);
+      return;
+      
+    } 
+     else if (!emailVar.includes("@") || !emailVar.includes(".")) {
+      errorMessage.textContent = 'Por favor, insira um e-mail válido.';
+      errorMessage.style.display = 'block';
+      setTimeout(sumirMensagem, 5000);
+      return;
+    }
+    else if (senhaVar !== confirmacaoSenhaVar) {
+      errorMessage.textContent = 'As senhas não coincidem.';
+      errorMessage.style.display = 'block';
+      setTimeout(sumirMensagem, 5000);
+      return;
+    } else {
+      setTimeout(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+          errorMessage.style.color = "green";
+          errorMessage.textContent = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          errorMessage.style.display = 'block';
+          setTimeout(() => {
+            window.location = "login.html";
+          }, 2000);
+          limparFormulario();
+        } else {
+          throw new Error("Houve um erro ao tentar realizar o cadastro!");
+        }
       })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-  
-          if (resposta.ok) {
-            cardErro.style.display = "block";
-  
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-  
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-  
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-          finalizarAguardar();
-        });
-  
-      return false;
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        errorMessage.style.color = "red";
+        errorMessage.textContent = "Houve um erro ao tentar realizar o cadastro!";
+        errorMessage.style.display = 'block';
+      });
+    return false;
+  }
+
+  function sumirMensagem() {
+    document.getElementById("error_message").style.display = 'none';
+  }
+
+  function mostrarsenha() {
+    var senhaInput = senha_input.value;
+    var confirmacaoSenhaInput = confirmacao_senha_input.value;
+    if (senhaInput.type === "password") {
+      senhaInput.type = "text";
+      confirmacaoSenhaInput.type = "text";
+    } else {
+      senhaInput.type = "password";
+      confirmacaoSenhaInput.type = "password";
     }
-  
-    // function listar() {
-    //   fetch("/empresas/listar", {
-    //     method: "GET",
-    //   })
-    //     .then(function (resposta) {
-    //       resposta.json().then((empresas) => {
-    //         empresas.forEach((empresa) => {
-    //           listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-    //         });
-    //       });
-    //     })
-    //     .catch(function (resposta) {
-    //       console.log(`#ERRO: ${resposta}`);
-    //     });
-    // }
-  
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-    }
-  </script>
+  }
+
+  function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+    confirmacao_senha_input.value = "";
+  }
+</script>

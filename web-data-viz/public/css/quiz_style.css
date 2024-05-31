@@ -1,0 +1,168 @@
+html{
+    height: 100%;
+    width: 100%;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'kgprimary', sans-serif;
+}
+ #navbar{
+    width: 100%;
+    height: 12vh;
+    background-color: rgb(235, 220, 243);
+    /* position: fixed; */
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -20px -20px 100px #e6bff1;
+    border-bottom: 3px solid; /* Espessura e estilo da borda */
+    border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+    border-image-slice: 1; /* Define a divisão uniforme do gradiente */
+ }
+
+
+ #nav_link{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10%;
+    flex-direction: row;
+    padding-right: 5%;
+    font-family: 'raspberie';
+
+ }
+ .link{
+    text-decoration: none;
+    color: black;
+ }
+ #link_home{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_servicos{
+   width: 6.2vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_equipe{
+   width: 5.4vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_sobre_nos{
+   width: 7.3vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .link-button {
+   width: 6vw; /* Defina a largura desejada */
+   height: 2.5vw; /* Ajuste conforme necessário */
+   display: inline-flex;
+   align-items: center;
+   font-size: 1.5vw;
+   background-color: rgb(236, 181, 234);
+   border: 3px solid #884788;
+   border-radius: 50px;
+   justify-content: center;
+   color: white;
+   font-style: normal;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   cursor: pointer;
+   transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+   text-decoration: none;
+}
+
+.link-button:hover {
+   background-color: #884788;
+   border-color: rgb(236, 181, 234);
+   color: white;
+}
+ #nav_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* background-color: aqua;    */
+ }
+ #logo{
+    height: 90%;
+    /* width: 40%; */
+ }
+
+ #home{
+    width: 100%;
+    height: 410%;
+    display: block;
+    align-items: center;
+    justify-content:center;
+    gap: 2.5%;
+    margin: auto;
+    background-color:rgb(241, 203, 240);
+ }
+
+ .quiz-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffff;
+    box-shadow: 0px 10px 20px #884788;
+    border-radius: 10px;
+}
+.question {
+    margin-bottom: 20px;
+}
+.question h3 {
+    margin-bottom: 10px;
+}
+.answers {
+    list-style-type: none;
+    padding: 0;
+}
+.answers li {
+    margin-bottom: 10px;
+}
+
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+li {
+   background-color: #e1bdf1;
+   margin: 5px 0;
+   padding: 10px;
+   border-radius: 5px;
+}

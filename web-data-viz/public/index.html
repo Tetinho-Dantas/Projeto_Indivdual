@@ -1,82 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
 </head>
-
+    
+</head>
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+    <div id="navbar">
+        <div id="nav_logo">
+            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE" >        
         </div>
-      </div>
+        <div id="nav_link">
+            <a id="link_home" class="link" href="#home">Home</a>
+            <a id="link_servicos" class="link" href="#servicos">Serviços</a>
+            <a id="link_sobre_nos" class="link" href="#sobre_nos">Sobre nós</a>
+            <a id="link_equipe" class="link" href="#equipe">Equipe</a>
+            <a id="link_login" class="link-button" href="login.html">Login</a>
+            
+            
+        </div>
     </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
+    <div id="home">
+        <div id="tela1">
+            <p id="p_tela1">
+                Welcome to SpecialE
+                <br>
+                <br>
+                here you will find the best
+                <br>
+                <br>
+                for your child
+            </p>
+        </div>
+        <div id="tela2">
+            <img id="imagem_tela" src="./imagens/Wavy_Lst-06_Single-06.jpg" alt="">
+        </div>
     </div>
-  </body>
+    <div id="servicos">
+        <div id="tela01">
+            <p class="H01"><b>Profissionais</b></p>
+            <p class="p_tela01">
+                Nosso projeto tem como foco priorizar a contratação de profissionais altamente capacitados, dedicados a ensinar e auxiliar no desenvolvimento de crianças com necessidades especiais, visando proporcionar-lhes um ambiente de aprendizado e crescimento adequado às suas demandas individuais.
+            </p>
 
+           <div class="tela01_1">
+            <img id= "ima"src="./imagens/psychologist-helping-little-girl-speech-therapy.jpg" alt="">
+           </div>
+        </div>
+        <div id="tela02">
+            <p class="H01"><b>Estrutura</b></p>
+            <p class="p_tela01">
+                Priorizamos a seleção de profissionais altamente capacitados, dedicados a ensinar e auxiliar no desenvolvimento de crianças com necessidades especiais. Estabelecemos uma estrutura sólida que visa proporcionar um ambiente de aprendizado e crescimento adaptado às demandas individuais de cada criança.
+            </p>
+            <div class="tela02_2">
+                <img id= "ima2" src="./imagens/infra.jpeg" alt="">
+               </div>
+        
+        </div>
+        <div id="tela03">
+            <p class="H01"><b>Ferramentas</b></p>
+
+            <p class="p_tela01">
+                Dentro da nossa abordagem, valorizamos a seleção cuidadosa de materiais e ferramentas educacionais adequadas para atender às necessidades específicas das crianças com limitações. Nossa estrutura incorpora uma variedade de recursos, desde materiais sensoriais e adaptativos até tecnologias assistivas, garantindo um ambiente de aprendizado inclusivo e eficaz. Através dessas ferramentas, buscamos proporcionar experiências educacionais enriquecedoras e promover o desenvolvimento integral de cada criança.
+            </p>
+
+            <div class="tela03_3">
+                <img id= "ima3" src="./imagens/infra2.webp" alt="">
+               </div>
+        </div>
+    </div>
+    <div id="sobre_nos_section">
+        <div id="sobre_nos">
+            <div id="tela">
+                <h1 class="H2">O que é a SpecialE</h1>
+                <p class="paragrafo"> A SpecialE destaca a importância de um sistema de gerenciamento para redes públicas de ensino, focado em crianças com necessidades especiais. Buscamos promover a conscientização sobre o suporte adequado, desde a identificação até o acesso a profissionais qualificados e recursos educacionais. Nosso objetivo é garantir uma educação inclusiva e de qualidade para todos, monitorando regularmente o progresso dos alunos e gerando relatórios para melhorias contínuas. Queremos ser uma plataforma de troca de informações e recursos, engajando educadores, pais e profissionais para promover uma educação mais inclusiva e equitativa.
+               
+            </p>
+        </div>
+             <div id="tela">
+                <h1 class="H2">Porque a SpecialE</h1>
+                <p class="paragrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia inventore quidem obcaecati non consequuntur qui at hic necessitatibus, animi eum nisi, cumque corrupti facere ea adipisci aut. Voluptatem, voluptatibus.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia inventore quidem obcaecati non consequuntur qui at hic necessitatibus, animi eum nisi, cumque corrupti facere ea adipisci aut. Voluptatem, voluptatibus.
+            </p>
+        </div>
+        <div id="tela">
+            <h1 class="H2">Como a SpecialE me Representa</h1>
+            <p class="paragrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia inventore quidem obcaecati non consequuntur qui at hic necessitatibus, animi eum nisi, cumque corrupti facere ea adipisci aut. Voluptatem, voluptatibus.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis officia inventore quidem obcaecati non consequuntur qui at hic necessitatibus, animi eum nisi, cumque corrupti facere ea adipisci aut. Voluptatem, voluptatibus.
+            </p>
+        </div>
+
+    </div>
+</div>
+    <div id="equipe">
+            <div id="fundo_foto">
+                <img class="eu" src="./imagens/my.jpg" alt="eu">
+            </div>
+            <div id="barra_dado">
+                <div class="div-menor1">
+                    <p class="nome">Luiz Gustavo Dantas</p>
+                </div>
+                <div class="div-menor2">
+                    <p class="cargo">Desenvolvedor Web</p>
+                </div>
+            </div>
+            <div id="nova_barra_dado">
+                <div class="coluna1">
+                    <div id="icon_html" class="icon">
+                        <img class="im_html" src="./imagens/html_32px.png" alt="html">
+                        <div class="legenda_html">HTML</div>
+                        <div class="textin_html">O HTML estrutura, organiza e dá significado ao conteúdo de uma página web.</div>
+                    </div>
+                    <div id="icon_css" class="icon">
+                        <img class="im_css" src="./imagens/css_32px.png" alt="css">
+                        <div class="legenda_css">CSS</div>
+                        <div class="textin_css">O CSS estiliza e define a aparência visual dos elementos HTML em uma página web.</div>
+                    </div>
+                    <div id="icon_js" class="icon">
+                        <img  class="im_js" src="./imagens/js_32px.png" alt="js">
+                        <div class="legenda_js">Javascript</div>
+                        <div class="textin_js">O JavaScript adiciona interatividade e funcionalidades dinâmicas a uma página web.</div>
+                    </div>
+                    <div id="icon_node" class="icon">
+                        <img class="im_node" src="./imagens/nodejs_32px.png" alt="oracle">
+                        <div class="legenda_node">NodeJS</div>
+                        <div class="textin_node">O Node.js é um ambiente de tempo de execução JavaScript que permite executar código JavaScript do lado do servidor</div>
+                    </div>
+                    <div id="icon_azure" class="icon">
+                        <img class="im_azure" src="./imagens/azure_32px.png" alt="azure">
+                        <div class="legenda_azure">AZURE</div>
+                        <div class="textin_azure">
+                            O Azure é uma plataforma de computação em nuvem da Microsoft, oferecendo diversos serviços para hospedagem, armazenamento, análise e IA.</div>
+                    </div>
+                    
+                </div>
+       
+            
+        </div>
+        <div id="nova_barra_dado2">
+            <div id="dentro">
+                <h2  class="sobre_mim">Sobre Mim</h2>
+                <p>Me chamo Luiz Gustavo Dantas, tenho 18 anos e sou técnico em Redes de Computadores. Atualmente, estou cursando Sistemas de Informação na SPTech, onde estou aprofundando meus conhecimentos em desenvolvimento de software, gerenciamento de banco de dados, cibersegurança e outras áreas essenciais da tecnologia da informação. Meu objetivo é combinar a formação técnica com uma sólida base teórica para me tornar um profissional versátil e bem preparado para os desafios do mercado de TI.</p>
+            </div>
+                
+        </div>
+        
+        
+    </div>
+    <div id="footer">
+        <div id="grupo">
+            
+            <div id="email">
+                <a href="mailto:luiz.cunha@sptech.school"><img src="imagens/o-email.png" alt="email"></a>
+            <h2 class="tituloFooter">E-mail</h2>
+            <p class="subtituloFooter">luiz.cunha@sptech.school</p>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
+                <h2 class="tituloFooter">LinkedIn</h2>
+                <p class="subtituloFooter">@LuizGustavoDantas</p>
+            </div>
+           
+            <div id="github">
+                <a href="https://github.com/LuizCunha-G"><img src="imagens/github.png" alt="GitHub"></a>
+            <h2 class="tituloFooter">Github</h2>
+            <p class="subtituloFooter">@LuizCunha-G</p>
+            </div>
+        </div>
+        
+
+    </div>
+
+    
+</body>
 </html>
+
