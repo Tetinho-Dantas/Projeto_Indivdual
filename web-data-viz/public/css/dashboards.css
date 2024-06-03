@@ -430,3 +430,33 @@ body {
 .display-block {
   display: block;
 }
+
+.quiz-section {
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  border: #212124 3px solid;
+  
+
+}
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.chart-item {
+  background-color: #ff6f91;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
