@@ -60,6 +60,10 @@ body{
     text-decoration: none;
     color: black;
  }
+ .link :hover{
+   text-decoration: underline;
+   color: rgb(78, 20, 95);
+}
  #link_home{
    width: 5vw;
    height: 2.5vw;

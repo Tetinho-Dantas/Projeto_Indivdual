@@ -1,161 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/quiz_style.css">
 </head>
+
 <body>
     <div id="navbar">
         <div id="nav_logo">
-            <img id="logo" src="" alt="SpecialE">        
+            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE">
         </div>
         <div id="nav_link">
-            <a id="link_home" class="link" href="#home">Home</a>
-            <a id="link_servicos" class="link" href="#servicos">Serviços</a>
-            <a id="link_sobre_nos" class="link" href="#sobre_nos">Sobre nós</a>
-            <a id="link_equipe" class="link" href="#equipe">Equipe</a>
+            <a id="link_home" class="link" href="./index.html#home">Home</a>
+            <a id="link_servicos" class="link" href="./index.html#servicos">Serviços</a>
+            <a id="link_sobre_nos" class="link" href="./index.html#sobre_nos">Sobre nós</a>
+            <a id="link_equipe" class="link" href="./index.html#equipe">Equipe</a>
             <a id="link_login" class="link-button" href="login.html">Login</a>
         </div>
     </div>
     <div id="home">
         <div class="quiz-container">
             <div class="questoes" id="questoes1">
-                <h3>Como você avalia a estrutura física da escola do seu filho(a) em termos de acessibilidade?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q1" value="Muito adequada"> Muito adequada</li>
-                    <li><input type="radio" name="q1" value="Adequada"> Adequada</li>
-                    <li><input type="radio" name="q1" value="Parcialmente adequada"> Parcialmente adequada</li>
-                    <li><input type="radio" name="q1" value="Inadequada"> Inadequada</li>
-                </ul>
+                <fieldset>
+                    <legend>Como você avalia a estrutura física da escola do seu filho(a) em termos de acessibilidade?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q1" value="Muito_adequada"> Muito adequada</label></li>
+                        <li><label><input type="radio" name="q1" value="Adequada"> Adequada</label></li>
+                        <li><label><input type="radio" name="q1" value="Parcialmente_adequada"> Parcialmente adequada</label></li>
+                        <li><label><input type="radio" name="q1" value="Inadequada"> Inadequada</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes2">
-                <h3>Você acredita que os professores da escola do seu filho(a) estão preparados para lidar com as necessidades dele(a)?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q2" value="Muito preparados"> Muito preparados</li>
-                    <li><input type="radio" name="q2" value="Preparados"> Preparados</li>
-                    <li><input type="radio" name="q2" value="Parcialmente preparados"> Parcialmente preparados</li>
-                    <li><input type="radio" name="q2" value="Despreparados"> Despreparados</li>
-                </ul>
+                <fieldset>
+                    <legend>Você acredita que os professores da escola do seu filho(a) estão preparados para lidar com as necessidades dele(a)?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q2" value="Muito preparados"> Muito preparados</label></li>
+                        <li><label><input type="radio" name="q2" value="Preparados"> Preparados</label></li>
+                        <li><label><input type="radio" name="q2" value="Parcialmente preparados"> Parcialmente preparados</label></li>
+                        <li><label><input type="radio" name="q2" value="Despreparados"> Despreparados</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes3">
-                <h3>A escola oferece recursos pedagógicos específicos para atender às necessidades do seu filho(a)?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q3" value="Sempre"> Sempre</li>
-                    <li><input type="radio" name="q3" value="Frequentemente"> Frequentemente</li>
-                    <li><input type="radio" name="q3" value="Ocasionalmente"> Ocasionalmente</li>
-                    <li><input type="radio" name="q3" value="Nunca"> Nunca</li>
-                </ul>
+                <fieldset>
+                    <legend>A escola oferece recursos pedagógicos específicos para atender às necessidades do seu filho(a)?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q3" value="Sempre"> Sempre</label></li>
+                        <li><label><input type="radio" name="q3" value="Frequentemente"> Frequentemente</label></li>
+                        <li><label><input type="radio" name="q3" value="Ocasionalmente"> Ocasionalmente</label></li>
+                        <li><label><input type="radio" name="q3" value="Nunca"> Nunca</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes4">
-                <h3>Como você percebe o nível de inclusão do seu filho(a) no ambiente escolar?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q4" value="Totalmente incluído"> Totalmente incluído</li>
-                    <li><input type="radio" name="q4" value="Parcialmente incluído"> Parcialmente incluído</li>
-                    <li><input type="radio" name="q4" value="Raramente incluído"> Raramente incluído</li>
-                    <li><input type="radio" name="q4" value="Não incluído"> Não incluído</li>
-                </ul>
+                <fieldset>
+                    <legend>Como você percebe o nível de inclusão do seu filho(a) no ambiente escolar?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q4" value="Totalmente incluído"> Totalmente incluído</label></li>
+                        <li><label><input type="radio" name="q4" value="Parcialmente incluído"> Parcialmente incluído</label></li>
+                        <li><label><input type="radio" name="q4" value="Raramente incluído"> Raramente incluído</label></li>
+                        <li><label><input type="radio" name="q4" value="Não incluído"> Não incluído</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes5">
-                <h3>Você acha que a escola promove atividades que estimulam a interação entre alunos com e sem deficiência?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q5" value="Sempre"> Sempre</li>
-                    <li><input type="radio" name="q5" value="Frequentemente"> Frequentemente</li>
-                    <li><input type="radio" name="q5" value="Ocasionalmente"> Ocasionalmente</li>
-                    <li><input type="radio" name="q5" value="Nunca"> Nunca</li>
-                </ul>
+                <fieldset>
+                    <legend>Você acha que a escola promove atividades que estimulam a interação entre alunos com e sem deficiência?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q5" value="Sempre"> Sempre</label></li>
+                        <li><label><input type="radio" name="q5" value="Frequentemente"> Frequentemente</label></li>
+                        <li><label><input type="radio" name="q5" value="Ocasionalmente"> Ocasionalmente</label></li>
+                        <li><label><input type="radio" name="q5" value="Nunca"> Nunca</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes6">
-                <h3>Como você avalia a comunicação entre a escola e as famílias em relação às necessidades específicas do seu filho(a)?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q6" value="Excelente"> Excelente</li>
-                    <li><input type="radio" name="q6" value="Boa"> Boa</li>
-                    <li><input type="radio" name="q6" value="Regular"> Regular</li>
-                    <li><input type="radio" name="q6" value="Ruim"> Ruim</li>
-                </ul>
+                <fieldset>
+                    <legend>Como você avalia a comunicação entre a escola e as famílias em relação às necessidades específicas do seu filho(a)?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q6" value="Excelente"> Excelente</label></li>
+                        <li><label><input type="radio" name="q6" value="Boa"> Boa</label></li>
+                        <li><label><input type="radio" name="q6" value="Regular"> Regular</label></li>
+                        <li><label><input type="radio" name="q6" value="Ruim"> Ruim</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes7">
-                <h3>Quais são os maiores desafios que você enfrenta na busca por uma educação inclusiva para seu filho(a)?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q7" value="Falta de recursos financeiros"> Falta de recursos financeiros</li>
-                    <li><input type="radio" name="q7" value="Falta de apoio profissional"> Falta de apoio profissional</li>
-                    <li><input type="radio" name="q7" value="Estrutura física inadequada"> Estrutura física inadequada</li>
-                    <li><input type="radio" name="q7" value="Preconceito e discriminação"> Preconceito e discriminação</li>
-                </ul>
+                <fieldset>
+                    <legend>Quais são os maiores desafios que você enfrenta na busca por uma educação inclusiva para seu filho(a)?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q7" value="Falta de recursos financeiros"> Falta de recursos financeiros</label></li>
+                        <li><label><input type="radio" name="q7" value="Falta de apoio profissional"> Falta de apoio profissional</label></li>
+                        <li><label><input type="radio" name="q7" value="Estrutura física inadequada"> Estrutura física inadequada</label></li>
+                        <li><label><input type="radio" name="q7" value="Preconceito e discriminação"> Preconceito e discriminação</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes8">
-                <h3>Você considera que seu filho(a) tem recebido apoio emocional suficiente na escola?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q8" value="Sim, completamente"> Sim, completamente</li>
-                    <li><input type="radio" name="q8" value="Em parte"> Em parte</li>
-                    <li><input type="radio" name="q8" value="Pouco"> Pouco</li>
-                    <li><input type="radio" name="q8" value="Não"> Não</li>
-                </ul>
+                <fieldset>
+                    <legend>Você considera que seu filho(a) tem recebido apoio emocional suficiente na escola?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q8" value="Sim, completamente"> Sim, completamente</label></li>
+                        <li><label><input type="radio" name="q8" value="Em parte"> Em parte</label></li>
+                        <li><label><input type="radio" name="q8" value="Pouco"> Pouco</label></li>
+                        <li><label><input type="radio" name="q8" value="Não"> Não</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes9">
-                <h3>Você sente que seu filho(a) está sendo preparado para o futuro de maneira adequada pela escola?</h3>
-                <ul class="answers">
-                    <li><input type="radio" name="q9" value="Sim, totalmente"> Sim, totalmente</li>
-                    <li><input type="radio" name="q9" value="Em parte"> Em parte</li>
-                    <li><input type="radio" name="q9" value="Pouco"> Pouco</li>
-                    <li><input type="radio" name="q9" value="Não"> Não</li>
-                </ul>
+                <fieldset>
+                    <legend>Você sente que seu filho(a) está sendo preparado para o futuro de maneira adequada pela escola?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q9" value="Sim, totalmente"> Sim, totalmente</label></li>
+                        <li><label><input type="radio" name="q9" value="Em parte"> Em parte</label></li>
+                        <li><label><input type="radio" name="q9" value="Pouco"> Pouco</label></li>
+                        <li><label><input type="radio" name="q9" value="Não"> Não</label></li>
+                    </ul>
+                </fieldset>
             </div>
+            
             <div class="questoes" id="questoes10">
-                <h3>Quais sugestões você daria para melhorar a inclusão e a qualidade da educação para crianças com necessidades especiais?</h3>
-                <textarea name="q10" rows="4" cols="50"></textarea>
+                <fieldset>
+                    <legend>Quais sugestões você daria para melhorar a inclusão e a qualidade da educação para crianças com necessidades especiais?</legend>
+                    <textarea name="q10" rows="4" cols="50" placeholder="Digite aqui"></textarea>
+                </fieldset>
             </div>
-            <button onclick="quest()">Enviar Respostas</button>
+            
+
+            <button id="botao" onclick="quest()">Enviar Respostas</button>
         </div>
     </div>
 
-    <script>
-        function quest() {
-        var respostas = [];
-        var questoes = document.querySelectorAll('.questoes');
-        var perguntaNum = 1; // Inicia com a pergunta número 1
+</body>
 
-        for (var i = 0; i < questoes.length; i++) {
-            var question = questoes[i];
-            var selectedOption = question.querySelector('input[type="radio"]:checked');
-            var textarea = question.querySelector('textarea');
+</html>
 
-            var resposta = null;
-            if (selectedOption) {
-                resposta = selectedOption.value;
-            } else if (textarea) {
-                resposta = textarea.value;
-            }
+<script>
+    
 
-            // Adiciona a resposta ao array de respostas com a numeração da pergunta
-            respostas.push({ pergunta: perguntaNum, resposta: resposta });
-            perguntaNum++; // Incrementa o número da pergunta
-        }
 
-        if (respostas.length === 0) {
-            alert('Por favor, preencha todas as questões antes de enviar.');
-        } else {
-            fetch("/quiz/respostas", { 
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(respostas)
-            }).then(function (resposta) {
-                if (resposta.ok) {
-                    alert('Respostas enviadas com sucesso!');
-                } else {
-                    resposta.text().then(texto => {
-                        alert('Erro ao enviar respostas: ' + texto);
-                    });
-                }
-            }).catch(function (erro) {
-                alert('Houve um erro ao tentar enviar as respostas!');
-                console.error(erro);
-            });
+    var answers = {}
+    var question_um = document.getElementById('questoes1')
+    var question_dois = document.getElementById('questoes2')
+    var question_tres = document.getElementById('questoes3')
+    var question_quatro = document.getElementById('questoes4')
+    var question_cinco = document.getElementById('questoes5')
+    var question_seis = document.getElementById('questoes6')
+    var question_sete = document.getElementById('questoes7')
+    var question_oito = document.getElementById('questoes8')
+    var question_nove = document.getElementById('questoes9')
+    
+
+    function storeAnswers(question_number, event) {
+        if (event.target.type === 'radio') {
+            console.log(event.target.value)
+            answers['question' + question_number] = event.target.value
+            console.log(answers)
         }
     }
-    </script>
-</body>
-</html>
+
+    question_um.addEventListener('click', function (event) {
+        storeAnswers(1, event)
+    })
+
+    question_dois.addEventListener('click', function (event) {
+        storeAnswers(2, event)
+    })
+
+    question_tres.addEventListener('click', function (event) {
+        storeAnswers(3, event)
+    })
+
+    question_quatro.addEventListener('click', function (event) {
+        storeAnswers(4, event)
+    })
+    question_cinco.addEventListener('click', function (event) {
+        storeAnswers(5, event)
+    })
+
+    question_seis.addEventListener('click', function (event) {
+        storeAnswers(6, event)
+    })
+
+    question_sete.addEventListener('click', function (event) {
+        storeAnswers(7, event)
+    })
+
+    question_oito.addEventListener('click', function (event) {
+        storeAnswers(8, event)
+    })
+    question_nove.addEventListener('click', function (event) {
+        storeAnswers(9, event)
+    })
+
+   
+
+
+    function quest() {
+        
+
+        var respostaPergunta1 = answers.question1;
+        var respostaPergunta2 = answers.question2;
+        var respostaPergunta3 = answers.question3;
+        var respostaPergunta4 = answers.question4;
+        var respostaPergunta5 = answers.question5;
+        var respostaPergunta6 = answers.question6;
+        var respostaPergunta7 = answers.question7;
+        var respostaPergunta8 = answers.question8;
+        var respostaPergunta9 = answers.question9;
+        
+
+
+        // Envia as respostas para o servidor
+        fetch("/quiz/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rp1: respostaPergunta1,
+                rp2: respostaPergunta2,
+                rp3: respostaPergunta3,
+                rp4: respostaPergunta4,
+                rp5: respostaPergunta5,
+                rp6: respostaPergunta6,
+                rp7: respostaPergunta7,
+                rp8: respostaPergunta8,
+                rp9: respostaPergunta9,
+                
+            })
+        }).then(function (resposta) {
+    if (resposta.ok) {
+        alert('Respostas enviadas com sucesso!');
+        setTimeout(() => {
+            window.location = "dash.html";
+        }, 2000);
+    } else {
+        resposta.text().then(texto => {
+            alert('Erro ao enviar respostas: ' + texto);
+        });
+    }
+}).catch(function (erro) {
+    alert('Houve um erro ao tentar enviar as respostas!');
+    console.error(erro);
+});
+    }
+
+</script>

@@ -119,21 +119,21 @@
   }
 
   function mostrarsenha() {
-    var senhaInput = senha_input.value;
-    var confirmacaoSenhaInput = confirmacao_senha_input.value;
-    if (senhaInput.type === "password") {
-      senhaInput.type = "text";
-      confirmacaoSenhaInput.type = "text";
-    } else {
-      senhaInput.type = "password";
-      confirmacaoSenhaInput.type = "password";
-    }
-  }
+            var senhaInput = document.getElementById("senha_input");
+            var confirmacaoSenhaInput = document.getElementById("confirmacao_senha_input");
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+                confirmacaoSenhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+                confirmacaoSenhaInput.type = "password";
+            }
+        }
 
-  function limparFormulario() {
-    nome_input.value = "";
-    email_input.value = "";
-    senha_input.value = "";
-    confirmacao_senha_input.value = "";
-  }
+        function limparFormulario() {
+            document.getElementById("nome_input").value = "";
+            document.getElementById("email_input").value = "";
+            document.getElementById("senha_input").value = "";
+            document.getElementById("confirmacao_senha_input").value = "";
+        }
 </script>

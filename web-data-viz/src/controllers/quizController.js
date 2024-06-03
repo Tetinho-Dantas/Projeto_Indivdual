@@ -7,7 +7,7 @@ function buscarRespostas(req, res) {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
-      res.status(204).json([]);
+      res.status(200).json([]);
     }
   }).catch(function (erro) {
     console.log(erro);
@@ -18,21 +18,19 @@ function buscarRespostas(req, res) {
 
 
 function cadastrar(req, res) {
-  var respostasId = req.body.respostasId;
-  var Q1 = req.body.Q1;
-  var Q2 = req.body.Q2;
-  var Q3 = req.body.Q3;
-  var Q4= req.body.Q4;
-  var Q5 = req.body.Q5;
-  var Q6 = req.body.Q6;
-  var Q7 = req.body.Q7;
-  var Q8 = req.body.Q8;
-  var Q9 = req.body.Q9;
+  var Q1 = req.body.rp1;
+  var Q2 = req.body.rp2;
+  var Q3 = req.body.rp3;
+  var Q4 = req.body.rp4;
+  var Q5 = req.body.rp5;
+  var Q6 = req.body.rp6;
+  var Q7 = req.body.rp7;
+  var Q8 = req.body.rp8;
+  var Q9 = req.body.rp9;
+  
 
 
-   if (respostasId == undefined) {
-    res.status(400).send("respostasId está undefined!");
-} else if (Q1 == undefined) {
+    if (Q1 == undefined) {
     res.status(400).send("Q1 está undefined!");
 } else if (Q2 == undefined) {
     res.status(400).send("Q2 está undefined!");
@@ -54,9 +52,7 @@ function cadastrar(req, res) {
   } else {
 
 
-    quizModel.cadastrar(
-      
-    )
+    quizModel.cadastrar(Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9)
       .then((resultado) => {
         res.status(201).json(resultado);
       }

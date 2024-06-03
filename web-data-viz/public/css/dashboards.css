@@ -7,17 +7,23 @@ body {
 }
 
 .navbar {
+  width: 100%;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  background-color: #333;
+  background-color: rgb(207, 179, 240);
   color: white;
   padding: 1rem;
   position: fixed;
   top: 0;
   z-index: 1000;
-}
+  box-shadow: -20px -20px 100px #e6bff1;
+    border-bottom: 3px solid; /* Espessura e estilo da borda */
+    border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+    border-image-slice: 1; /* Define a divisão uniforme do gradiente */
+ }
+
 
 .navbar h1 {
   margin: 0 2rem;
@@ -35,6 +41,7 @@ body {
   justify-content: center;
   width: 15%;
   height: 100%;
+  /* margin-left: -10px; */
   /* background-color: aqua;    */
 }
 #logo{
@@ -49,15 +56,17 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  background: #ffffff;
 }
 
 .dash {
   width: 80%;
   max-width: 1200px; /* Defina uma largura máxima, se necessário */
-  background-color: #161618;
+  background-color: rgb(241, 203, 240);
   margin: 0 auto; /* Centraliza horizontalmente */
   height: 100vh;
   overflow: auto;
+  
 }
 
 .dash-header {

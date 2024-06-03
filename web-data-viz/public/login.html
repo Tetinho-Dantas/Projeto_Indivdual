@@ -6,90 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login_style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400&family=Source+Sans+3:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;400&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="pai">
         <div class="voltar">
-            <a href="index.html"> <img src="imagens/botao-voltar.png" class="img2"></a>
+            <a href="index.html"><img src="imagens/botao-voltar.png" class="img2"></a>
         </div>
 
         <h1>Faça o login</h1>
         <br><br><br>
 
-        <div class="input-field">
-            <input type="text" name="E-mail" id="email_input" required="required" autocomplete="off">
-            <span>E-mail</span>
-        </div>
+        <form onsubmit="entrar(event)">
+            <div class="input-field">
+                <input type="text" name="E-mail" id="email_input" required="required" autocomplete="off">
+                <span>E-mail</span>
+            </div>
 
-        <div class="input-field">
-            <input type="password" name="Senha" id="senha_input" required="required" autocomplete="off">
-            <span>Senha</span>
-        </div>
+            <div class="input-field">
+                <input type="password" name="Senha" id="senha_input" required="required" autocomplete="off">
+                <span>Senha</span>
+            </div>
 
-        <div class="checkbox">
-            <p>Exibir senha</p>  
-            <input type="checkbox" onclick="mostrarsenha()"> 
-        </div>
+            <div class="checkbox">
+                <p>Exibir senha</p>
+                <input type="checkbox" onclick="mostrarsenha()">
+            </div>
 
-        <a style="color:#884788;" href="">Esqueceu a senha?</a>
-        <p>Não tem uma conta? <a style="color:#884788;" href="Cadastro.html">Clique aqui</a></p>
-        <br>
+            <a style="color:#884788;" href="">Esqueceu a senha?</a>
+            <p>Não tem uma conta? <a style="color:#884788;" href="Cadastro.html">Clique aqui</a></p>
+            <br>
 
-        <div id="error-message" style="color: red; display: none;"></div>
+            <div id="error-message" style="color: red; display: none;"></div>
 
-        <button class="botao" onclick="entrar()">Fazer Login</button>
+            <button class="botao" type="submit">Fazer Login</button>
+        </form>
     </div>
-</body>
-</html>
 
-<script>
-    function quest() {
-        var respostas = [];
-        var questoes = document.querySelectorAll('.questoes');
-        var perguntaNum = 1; // Inicia com a pergunta número 1
+    <script>
+        function entrar(event) {
+            event.preventDefault();
 
-        for (var i = 0; i < questoes.length; i++) {
-            var question = questoes[i];
-            var selectedOption = question.querySelector('input[type="radio"]:checked');
-            var textarea = question.querySelector('textarea');
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+            var errorMessage = document.getElementById("error-message");
 
-            var resposta = null;
-            if (selectedOption) {
-                resposta = selectedOption.value;
-            } else if (textarea) {
-                resposta = textarea.value;
+            if (emailVar === "" || senhaVar === "") {
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "Por favor, preencha todos os campos.";
+                return;
             }
 
-            // Adiciona a resposta ao array de respostas com a numeração da pergunta
-            respostas.push({ pergunta: perguntaNum, resposta: resposta });
-            perguntaNum++; // Incrementa o número da pergunta
-        }
-
-        if (respostas.length === 0) {
-            alert('Por favor, preencha todas as questões antes de enviar.');
-        } else {
-            fetch("/quiz/respostas", { 
+            fetch("/usuarios/autenticar", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(respostas)
-            }).then(function (resposta) {
-                if (resposta.ok) {
-                    alert('Respostas enviadas com sucesso!');
-                } else {
-                    resposta.text().then(texto => {
-                        alert('Erro ao enviar respostas: ' + texto);
-                    });
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            })
+            .then(function (resposta) {
+                if (!resposta.ok) {
+                    throw new Error("Houve um erro ao tentar realizar o login!");
                 }
-            }).catch(function (erro) {
-                alert('Houve um erro ao tentar enviar as respostas!');
+                return resposta.json();
+            })
+            .then(function (json) {
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.AQUARIOS = JSON.stringify(json.aquarios);
+                setTimeout(function () {
+                    window.location.href = "pre_quiz.html";
+                }, 1000); // Apenas para exibir o loading
+            })
+            .catch(function (erro) {
                 console.error(erro);
+                errorMessage.style.display = "block";
+                errorMessage.innerText = "Credenciais inválidas. Por favor, tente novamente.";
             });
         }
-    }
-</script>
+
+        function mostrarsenha() {
+            var senhaInput = document.getElementById("senha_input");
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
+            } else {
+                senhaInput.type = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>
