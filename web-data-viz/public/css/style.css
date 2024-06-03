@@ -50,7 +50,7 @@ body{
     display: flex;
     justify-content: right;
     align-items: center;
-    gap: 10%;
+    gap: 11.2%;
     flex-direction: row;
     padding-right: 5%;
     font-family: 'raspberie';
@@ -70,6 +70,7 @@ body{
    display: flex;
    align-items: center;
    font-size: 1.5vw;
+   margin-left: 90px;
 
    color: #884788;
    font-style: normal;
@@ -97,8 +98,8 @@ body{
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
  #link_sobre_nos{
-   width: 7.3vw;
-   height: 2.5vw;
+   width: 18vw;
+   height: 2vw;
    display: flex;
    align-items: center;
    font-size: 1.5vw;
@@ -106,16 +107,40 @@ body{
    font-style: normal;
    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
+ #link_quiz{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_dash{
+   width: 9vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
 
  .link-button {
-   width: 6vw; /* Defina a largura desejada */
+   width: 10vw; /* Defina a largura desejada */
    height: 2.5vw; /* Ajuste conforme necessário */
    display: inline-flex;
    align-items: center;
    font-size: 1.5vw;
    background-color: rgb(236, 181, 234);
    border: 3px solid #884788;
-   border-radius: 50px;
+   border-radius: 18px;
    justify-content: center;
    color: white;
    font-style: normal;
@@ -123,7 +148,18 @@ body{
    cursor: pointer;
    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
    text-decoration: none;
+   margin-left: 30px;
 }
+#link_home:hover,
+#link_servicos:hover,
+#link_equipe:hover,
+#link_sobre_nos:hover,
+#link_quiz:hover,
+#link_dash:hover {
+   text-decoration: underline;
+   color: rgb(78, 20, 95);
+}
+
 
 .link-button:hover {
    background-color: #884788;
@@ -136,6 +172,7 @@ body{
     justify-content: center;
     width: 15%;
     height: 100%;
+    margin-right: 120px;
     /* background-color: aqua;    */
  }
  #logo{

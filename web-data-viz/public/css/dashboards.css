@@ -6,34 +6,107 @@ body {
   font-family: 'Barlow', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar {
+#navbar{
   width: 100%;
-  height: 10%;
+  height: 12vh;
+  background-color: rgb(235, 220, 243);
+  /* position: fixed; */
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(207, 179, 240);
-  color: white;
-  padding: 1rem;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
   box-shadow: -20px -20px 100px #e6bff1;
-    border-bottom: 3px solid; /* Espessura e estilo da borda */
-    border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
-    border-image-slice: 1; /* Define a divisão uniforme do gradiente */
- }
-
-
-.navbar h1 {
-  margin: 0 2rem;
+  border-bottom: 3px solid; /* Espessura e estilo da borda */
+  border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+  border-image-slice: 1; /* Define a divisão uniforme do gradiente */
 }
 
-.navbar .hello,
-.navbar .btn-nav,
-.navbar .btn-logout {
-  margin: 0 1rem;
-  cursor: pointer;
+
+#nav_link{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 10%;
+  flex-direction: row;
+  padding-right: 5%;
+  font-family: 'raspberie';
+
+}
+.link{
+  text-decoration: none;
+  color: black;
+}
+.link :hover{
+ text-decoration: underline;
+ color: rgb(78, 20, 95);
+}
+#link_home{
+ width: 5vw;
+ height: 2.5vw;
+ display: flex;
+ align-items: center;
+ font-size: 1.5vw;
+
+ color: #884788;
+ font-style: normal;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+}
+#link_servicos{
+ width: 6.2vw;
+ height: 2.5vw;
+ display: flex;
+ align-items: center;
+ font-size: 1.5vw;
+ color: #884788;
+ font-style: normal;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#link_equipe{
+ width: 5.4vw;
+ height: 2.5vw;
+ display: flex;
+ align-items: center;
+ font-size: 1.5vw;
+ color: #884788;
+ font-style: normal;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#link_sobre_nos{
+ width: 7.3vw;
+ height: 2.5vw;
+ display: flex;
+ align-items: center;
+ font-size: 1.5vw;
+ color: #884788;
+ font-style: normal;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.link-button {
+ width: 6vw; /* Defina a largura desejada */
+ height: 2.5vw; /* Ajuste conforme necessário */
+ display: inline-flex;
+ align-items: center;
+ font-size: 1.5vw;
+ background-color: rgb(236, 181, 234);
+ border: 3px solid #884788;
+ border-radius: 50px;
+ justify-content: center;
+ color: white;
+ font-style: normal;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ cursor: pointer;
+ transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+ text-decoration: none;
+}
+
+.link-button:hover {
+ background-color: #884788;
+ border-color: rgb(236, 181, 234);
+ color: white;
 }
 #nav_logo{
   display: flex;
@@ -41,14 +114,12 @@ body {
   justify-content: center;
   width: 15%;
   height: 100%;
-  /* margin-left: -10px; */
   /* background-color: aqua;    */
 }
 #logo{
   height: 90%;
   /* width: 40%; */
 }
-
 .janela {
   margin-top: 6rem;
   display: flex;
