@@ -32,14 +32,15 @@
         </div>
         <div id="nav_link">
             <a id="link_home" class="link" href="index.html">SpecialE</a>
-            <a id="link_servicos" class="link" href="#">Mural</a>
+            <a id="link_servicos" class="link" href="mural.html">Mural</a>
             <a id="link_home" class="link" href="pre_quiz.html">Quiz</a>
             <a id="link_login" class="link-button" href="login.html">Login</a>
         </div>
     </div>
     <div class="janela">
-        <div id="b_usuario"></div>
+        <div id="b_usuario">Seja Bem Vindo, <span id="nome_usuario">Usuário</span></div>
     </div>
+    
     <div class="dash">
         <div id="alerta"></div>
         <div id="quizSection" class="quiz-section">
@@ -83,6 +84,7 @@
         if (sessionStorage.NOME_USUARIO) {
             document.getElementById('b_usuario').innerText = sessionStorage.NOME_USUARIO;
         }
+        
         exibirRespostasQuizQ1();
         exibirRespostasQuizQ2();
         exibirRespostasQuizQ3();
@@ -95,6 +97,11 @@
 
 
     };
+        // Supondo que 'nomeUsuario' contenha o nome do usuário
+var nomeUsuario = "João";
+
+// Atualiza o conteúdo da span com o nome do usuário
+document.getElementById("nome_usuario").textContent = nomeUsuario;
 
     // Primeiro Grafico Q1
     function exibirRespostasQuizQ1() {
@@ -114,433 +121,599 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-
     function plotarGraficoQ1(resposta) {
-        console.log('iniciando plotagem do gráfico Q1...');
+    console.log('iniciando plotagem do gráfico Q1...');
 
-        let labels = ['Muito adequada', 'Adequada', 'Parcialmente adequada', 'Inadequada'];
+    let labels = ['Muito adequada', 'Adequada', 'Parcialmente adequada', 'Inadequada'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q1 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q1.Muito_Adequada_Q1);
-            dados.datasets[0].data[1] += parseInt(Q1.Adequada_Q1);
-            dados.datasets[0].data[2] += parseInt(Q1.Parcialmente_Adequada_Q1);
-            dados.datasets[0].data[3] += parseInt(Q1.Inadequada_Q1);
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '1º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico Q1 será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
-
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
-
-        // Plot chart
-        new Chart(
-            document.getElementById(`myChartCanvas1`),
-            config
-        );
+    for (let i = 0; i < resposta.length; i++) {
+        var Q1 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q1.Muito_Adequada_Q1);
+        dados.datasets[0].data[1] += parseInt(Q1.Adequada_Q1);
+        dados.datasets[0].data[2] += parseInt(Q1.Parcialmente_Adequada_Q1);
+        dados.datasets[0].data[3] += parseInt(Q1.Inadequada_Q1);
     }
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico Q1 será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
+
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
+
+    // Plot chart
+    new Chart(
+        document.getElementById(`myChartCanvas1`),
+        config
+    );
+}
+
+
 
 
     // Segundo Grafico Q2
     function exibirRespostasQuizQ2() {
-        fetch(`/medidas/buscar/pergunta2`, { cache: 'no-store' })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoQ2(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
+    fetch(`/medidas/buscar/pergunta2`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGraficoQ2(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 
-    function plotarGraficoQ2(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+function plotarGraficoQ2(resposta) {
+    console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Muito preparados', 'Preparados', 'Parcialmente preparados', 'Despreparados'];
+    let labels = ['Muito preparados', 'Preparados', 'Parcialmente preparados', 'Despreparados'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q2 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q2.Muito_Preparados_Q2);
-            dados.datasets[0].data[1] += parseInt(Q2.Preparados_Q2);
-            dados.datasets[0].data[2] += parseInt(Q2.Parcialmente_Preparados_Q2);
-            dados.datasets[0].data[3] += parseInt(Q2.Despreparados_Q2);
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '2º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
+    for (let i = 0; i < resposta.length; i++) {
+        var Q2 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q2.Muito_Preparados_Q2);
+        dados.datasets[0].data[1] += parseInt(Q2.Preparados_Q2);
+        dados.datasets[0].data[2] += parseInt(Q2.Parcialmente_Preparados_Q2);
+        dados.datasets[0].data[3] += parseInt(Q2.Despreparados_Q2);
+    }
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
 
-        // Plot multiple charts
-    
-            new Chart(
-                document.getElementById(`myChartCanvas2`),
-                config
-            );
-        }
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
+
+    // Plot multiple charts
+    new Chart(
+        document.getElementById(`myChartCanvas2`),
+        config
+    );
+}
+
     
     // Terceiro Grafico Q3
     function exibirRespostasQuizQ3() {
-        fetch(`/medidas/buscar/pergunta3`, { cache: 'no-store' })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoQ3(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
+    fetch(`/medidas/buscar/pergunta3`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGraficoQ3(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 
-    function plotarGraficoQ3(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+function plotarGraficoQ3(resposta) {
+    console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Sempre', 'Frequentemente', 'Ocasionalmente', 'Nunca'];
+    let labels = ['Sempre', 'Frequentemente', 'Ocasionalmente', 'Nunca'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q3 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q3.Sempre_Q3);
-            dados.datasets[0].data[1] += parseInt(Q3.Frequentemente_Q3);
-            dados.datasets[0].data[2] += parseInt(Q3.Ocasionalmente_Q3);
-            dados.datasets[0].data[3] += parseInt(Q3.Nunca_Q3);
+    for (let i = 0; i < resposta.length; i++) {
+        var Q3 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q3.Sempre_Q3);
+        dados.datasets[0].data[1] += parseInt(Q3.Frequentemente_Q3);
+        dados.datasets[0].data[2] += parseInt(Q3.Ocasionalmente_Q3);
+        dados.datasets[0].data[3] += parseInt(Q3.Nunca_Q3);
+    }
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
+
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '3º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+    // Plot multiple charts
+    new Chart(
+        document.getElementById(`myChartCanvas3`),
+        config
+    );
+}
 
-        // Plot multiple charts
-    
-            new Chart(
-                document.getElementById(`myChartCanvas3`),
-                config
-            );
-        }
     
     // Quarto Grafico Q4
     function exibirRespostasQuizQ4() {
-        fetch(`/medidas/buscar/pergunta4`, { cache: 'no-store' })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoQ4(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
+    fetch(`/medidas/buscar/pergunta4`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGraficoQ4(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 
-    function plotarGraficoQ4(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+function plotarGraficoQ4(resposta) {
+    console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Totalmente incluído', 'Parcialmente incluído', 'Raramente incluído', 'Não incluído'];
+    let labels = ['Totalmente incluído', 'Parcialmente incluído', 'Raramente incluído', 'Não incluído'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q4 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q4.Totalmente_Incluido_Q4);
-            dados.datasets[0].data[1] += parseInt(Q4.Parcialmente_Incluido_Q4);
-            dados.datasets[0].data[2] += parseInt(Q4.Raramente_Incluido_Q4);
-            dados.datasets[0].data[3] += parseInt(Q4.Nao_Incluido_Q4);
+    for (let i = 0; i < resposta.length; i++) {
+        var Q4 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q4.Totalmente_Incluido_Q4);
+        dados.datasets[0].data[1] += parseInt(Q4.Parcialmente_Incluido_Q4);
+        dados.datasets[0].data[2] += parseInt(Q4.Raramente_Incluido_Q4);
+        dados.datasets[0].data[3] += parseInt(Q4.Nao_Incluido_Q4);
+    }
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
+
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '4º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+    // Plot multiple charts
+    new Chart(
+        document.getElementById(`myChartCanvas4`),
+        config
+    );
+}
 
-        // Plot multiple charts
-    
-            new Chart(
-                document.getElementById(`myChartCanvas4`),
-                config
-            );
-        }
     
 
     // Quinto Grafico Q5
     function exibirRespostasQuizQ5() {
-        fetch(`/medidas/buscar/pergunta5`, { cache: 'no-store' })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoQ5(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
+    fetch(`/medidas/buscar/pergunta5`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGraficoQ5(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 
-    function plotarGraficoQ5(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+function plotarGraficoQ5(resposta) {
+    console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Sempre', 'Frequentemente', 'Ocasionalmente', 'Nunca'];
+    let labels = ['Sempre', 'Frequentemente', 'Ocasionalmente', 'Nunca'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q5 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q5.Sempre_Q5);
-            dados.datasets[0].data[1] += parseInt(Q5.Frequentemente_Q5);
-            dados.datasets[0].data[2] += parseInt(Q5.Ocasionalmente_Q5);
-            dados.datasets[0].data[3] += parseInt(Q5.Nunca_Q5);
+    for (let i = 0; i < resposta.length; i++) {
+        var Q5 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q5.Sempre_Q5);
+        dados.datasets[0].data[1] += parseInt(Q5.Frequentemente_Q5);
+        dados.datasets[0].data[2] += parseInt(Q5.Ocasionalmente_Q5);
+        dados.datasets[0].data[3] += parseInt(Q5.Nunca_Q5);
+    }
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
+
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '5º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+    new Chart(
+        document.getElementById(`myChartCanvas5`),
+        config
+    );
+}
 
-        // Plot multiple charts
-    
-            new Chart(
-                document.getElementById(`myChartCanvas5`),
-                config
-            );
-        }
     
     // Sexto Grafico Q6
     function exibirRespostasQuizQ6() {
-        fetch(`/medidas/buscar/pergunta6`, { cache: 'no-store' })
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-                        plotarGraficoQ6(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
+    fetch(`/medidas/buscar/pergunta6`, { cache: 'no-store' })
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+                    plotarGraficoQ6(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
 
-    function plotarGraficoQ6(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+function plotarGraficoQ6(resposta) {
+    console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Excelente', 'Boa', 'Regular', 'Ruim'];
+    let labels = ['Excelente', 'Boa', 'Regular', 'Ruim'];
 
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Nível de Experiência',
-                data: [0, 0, 0, 0],
-                backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+    let dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Nível de Experiência',
+            data: [0, 0, 0, 0],
+            backgroundColor: [
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
-                borderWidth: 1
-            }]
-        };
+            borderWidth: 1
+        }]
+    };
 
-        for (let i = 0; i < resposta.length; i++) {
-            var Q6 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q6.Excelente_Q6);
-            dados.datasets[0].data[1] += parseInt(Q6.Boa_Q6);
-            dados.datasets[0].data[2] += parseInt(Q6.Regular_Q6);
-            dados.datasets[0].data[3] += parseInt(Q6.Ruim_Q6);
+    for (let i = 0; i < resposta.length; i++) {
+        var Q6 = resposta[i];
+        dados.datasets[0].data[0] += parseInt(Q6.Excelente_Q6);
+        dados.datasets[0].data[1] += parseInt(Q6.Boa_Q6);
+        dados.datasets[0].data[2] += parseInt(Q6.Regular_Q6);
+        dados.datasets[0].data[3] += parseInt(Q6.Ruim_Q6);
+    }
+
+    console.log('----------------------------------------------');
+    console.log('O gráfico será plotado com os respectivos valores:');
+    console.log('Labels:');
+    console.log(labels);
+    console.log('Dados:');
+    console.log(dados.datasets[0].data);
+    console.log('----------------------------------------------');
+
+    let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '6º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
         }
+    };
 
-        console.log('----------------------------------------------');
-        console.log('O gráfico será plotado com os respectivos valores:');
-        console.log('Labels:');
-        console.log(labels);
-        console.log('Dados:');
-        console.log(dados.datasets[0].data);
-        console.log('----------------------------------------------');
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+    new Chart(
+        document.getElementById(`myChartCanvas6`),
+        config
+    );
+}
 
-        // Plot multiple charts
-        
-            new Chart(
-                document.getElementById(`myChartCanvas6`),
-                config
-            );
-        }
-    
     // Setimo Grafico Q7
     function exibirRespostasQuizQ7() {
         fetch(`/medidas/buscar/pergunta7`, { cache: 'no-store' })
@@ -571,16 +744,16 @@
                 label: 'Nível de Experiência',
                 data: [0, 0, 0, 0],
                 backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
                 borderWidth: 1
             }]
@@ -602,11 +775,38 @@
         console.log(dados.datasets[0].data);
         console.log('----------------------------------------------');
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+        let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '7º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 10 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
+        }
+    };
 
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
         // Plot multiple charts
         
             new Chart(
@@ -645,16 +845,16 @@
                 label: 'Nível de Experiência',
                 data: [0, 0, 0, 0],
                 backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
                 borderWidth: 1
             }]
@@ -676,11 +876,38 @@
         console.log(dados.datasets[0].data);
         console.log('----------------------------------------------');
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+        let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '8º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
+        }
+    };
 
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
         // Plot multiple charts
         
             new Chart(
@@ -719,16 +946,16 @@
                 label: 'Nível de Experiência',
                 data: [0, 0, 0, 0],
                 backgroundColor: [
-                    '#006d2c',
-                    '#b2e2e2',
-                    '#66c2a4',
-                    '#238b45',
+                    '#B97EE8',
+                    '#8F2FBD',
+                    '#A24E99',
+                    '#B81070',
                 ],
                 borderColor: [
-                    '#bdd7e7',
-                    '#6baed6',
-                    '#3182bd',
-                    '#08519c'
+                '#9554C8',
+                    '#6F2294',
+                    '#76306F',
+                    '#8D1258'
                 ],
                 borderWidth: 1
             }]
@@ -750,11 +977,38 @@
         console.log(dados.datasets[0].data);
         console.log('----------------------------------------------');
 
-        const config = {
-            type: 'pie',
-            data: dados,
-        };
+        let opcoes = {
+        plugins: {
+            title: {
+                display: true,
+                text: '9º - Questão' // Adicione o título desejado aqui
+            },
+            legend: {
+                display: true,
+                position: 'bottom', // Move a legenda para a parte inferior
+                align: 'center', // Alinha a legenda ao centro
+                labels: {
+                    padding: 20, // Adiciona espaçamento entre os itens da legenda
+                    boxWidth: 20, // Define a largura da caixa de cor da legenda
+                    font: {
+                        size: 12 // Tamanho da fonte dos itens da legenda
+                    }
+                }
+            }
+        },
+        layout: {
+            padding: {
+                top: 10,
+                bottom: 10
+            }
+        }
+    };
 
+    const config = {
+        type: 'pie',
+        data: dados,
+        options: opcoes // Adiciona as opções ao objeto de configuração
+    };
         // Plot multiple chart
         new Chart(
             document.getElementById(`myChartCanvas9`),
@@ -762,6 +1016,8 @@
         );
 
     }
+
+
 </script>
 <!-- <h3>Respostas do Quiz</h3>
                 <table id="quizTable">

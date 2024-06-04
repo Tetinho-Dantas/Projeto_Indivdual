@@ -50,7 +50,7 @@ body{
     display: flex;
     justify-content: right;
     align-items: center;
-    gap: 11.2%;
+    gap: 8%;
     flex-direction: row;
     padding-right: 5%;
     font-family: 'raspberie';

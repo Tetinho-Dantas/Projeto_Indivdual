@@ -1,0 +1,331 @@
+html{
+    height: 100%;
+    width: 100%;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'kgprimary', sans-serif;
+}
+ #navbar{
+    width: 100%;
+    height: 12vh;
+    background-color: rgb(235, 220, 243);
+    /* position: fixed; */
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -20px -20px 100px #e6bff1;
+    border-bottom: 3px solid; /* Espessura e estilo da borda */
+    border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+    border-image-slice: 1; /* Define a divisão uniforme do gradiente */
+ }
+
+
+ #nav_link{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 11.2%;
+    flex-direction: row;
+    padding-right: 5%;
+    font-family: 'raspberie';
+
+ }
+ .link{
+    text-decoration: none;
+    color: black;
+ }
+ .link :hover{
+   text-decoration: underline;
+   color: rgb(78, 20, 95);
+}
+ #link_home{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   margin-left: 90px;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_servicos{
+   width: 6.2vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_equipe{
+   width: 5.4vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_sobre_nos{
+   width: 18vw;
+   height: 2vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ #link_quiz{
+   width: 5vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+ #link_dash{
+   width: 9vw;
+   height: 2.5vw;
+   display: flex;
+   align-items: center;
+   font-size: 1.5vw;
+
+   color: #884788;
+   font-style: normal;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* box-shadow: 0px 10px 10px 10px rgb(236, 181, 234) ; */
+ }
+
+ .link-button {
+   width: 10vw; /* Defina a largura desejada */
+   height: 2.5vw; /* Ajuste conforme necessário */
+   display: inline-flex;
+   align-items: center;
+   font-size: 1.5vw;
+   background-color: rgb(236, 181, 234);
+   border: 3px solid #884788;
+   border-radius: 18px;
+   justify-content: center;
+   color: white;
+   font-style: normal;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   cursor: pointer;
+   transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+   text-decoration: none;
+   margin-left: 30px;
+}
+#link_home:hover,
+#link_servicos:hover,
+#link_equipe:hover,
+#link_sobre_nos:hover,
+#link_quiz:hover,
+#link_dash:hover {
+   text-decoration: underline;
+   color: rgb(78, 20, 95);
+}
+
+
+.link-button:hover {
+   background-color: #884788;
+   border-color: rgb(236, 181, 234);
+   color: white;
+}
+ #nav_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    margin-right: 120px;
+    /* background-color: aqua;    */
+ }
+ #logo{
+    height: 90%;
+    /* width: 40%; */
+ }
+
+ #home {
+    width: 100%;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5%;
+    background-color: rgb(255, 255, 255);
+}
+ .container {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #e0d1e0, #df86df);
+}
+
+.column-left{
+    width: 48%; /* Ajuste conforme necessário */
+    height:  100%;
+
+}
+#titulo,
+#textarea_descricao {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: #333;
+    font-size: 1em;
+}
+
+#titulo:focus,
+#textarea_descricao:focus {
+    border-color: #884788;
+}
+
+#titulo ~ span,
+#textarea_descricao ~ span {
+    position: absolute;
+    left: 10px; /* Ajustado para 10px para alinhar com o padding do input */
+    top: 0;
+    padding: 0 5px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #884788;
+    transition: 0.3s;
+}
+
+#titulo:focus ~ span,
+#textarea_descricao:focus ~ span,
+#titulo:not(:placeholder-shown) ~ span,
+#textarea_descricao:not(:placeholder-shown) ~ span {
+    color: #884788;
+    transform: translate(-5px, -50%) scale(0.8); /* Ajustado para incluir escala */
+    background: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#titulo:hover,
+#textarea_descricao:hover {
+    border-color: #612061; /* Altera a cor da borda ao passar o mouse */
+    background: #eadfeb;
+}
+
+#titulo:hover ~ span,
+#textarea_descricao:hover ~ span {
+    color: #612061; /* Altera a cor do texto de dica ao passar o mouse */
+    background: #eadfeb;
+}
+
+
+
+
+/* Estilo para o botão */
+button {
+    padding: 10px 20px;
+    background-color: #884788;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    font-family: sans-serif;
+}
+
+button:hover {
+    background-color: #6e3573;
+}
+
+.column-right {
+    width: 48%; /* Ajuste conforme necessário */
+    height:  90%;
+    border: #884788 3px solid;
+    border-radius: 20px;
+    margin-top: 10px;
+    background: linear-gradient(to top, #b486df, #d7c0e6, #b486df);
+}
+
+
+.publicacao {
+    background-color: rgba(248, 217, 235, 0.8); /* Cor de fundo com opacidade */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Borda arredondada */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: right; /* Alinha o texto à direita */
+}
+h1 {
+    text-align: center; /* Alinha o texto do h1 à direita */
+    color: #47086b; /* Cor do texto */
+    font-size: 48px; /* Tamanho da fonte */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    font-family: sans-serif;
+}
+
+
+
+ #footer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: #884788;
+ }
+
+ #grupo{
+   width: 65vw;
+   height: 90%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+  
+
+ }
+
+ #email, #linkedin, #github {
+   width: 20vw;
+   height: 95%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column; 
+}
+
+#email img, #linkedin img, #github img {
+   width: 80%; 
+   margin-top: 20px;
+   margin-left: 10px;
+}
+
+#email p, #linkedin p, #github p {
+   margin-top: -10px ; 
+   text-align: center;
+}
+
+#email h2, #linkedin h2, #github h2 {
+   margin-top: -2px ;
+   text-align: center; 
+}
