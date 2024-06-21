@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./css/questionario.css">
+    <link rel="shortcut icon" type="image/png" href="./imagens/SpecialE.png">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar">
+        <div id="nav_logo">
+            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE">
+        </div>
+        <div id="nav_link">
+            <a id="link_home" class="link" href="./index.html">SpecialE</a>
+            <a id="link_equipe" class="link" href="./mural.html">Mural</a>
+            <a id="link_home" class="link" href="dash.html">Dashboard</a>
+            <a id="link_login" class="link-button" href="login.html">Login</a>
+        </div>
+    </div>
+
+    <!-- Conteúdo do Quiz -->
+    <div id="home">
+        <div class="quiz-container">
+            <!-- Questão 1 -->
+            <div class="questao1" id="questoes1">
+                <fieldset>
+                    <legend>Qual é o maior desafio que você enfrenta em relação à educação do seu filho(a)?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q1" value="Profissionais_incapacitados">Profissionais incapacitados</label></li>
+                        <li><label><input type="radio" name="q1" value="Distancia">Distância</label></li>
+                        <li><label><input type="radio" name="q1" value="Infraestrutura">Infraestrutura</label></li>
+                        <li><label><input type="radio" name="q1" value="Metodologia_de_Ensino">Metodologia de Ensino</label></li>
+                    </ul>
+                    <button class="botao" onclick="quest(1)">Enviar Resposta</button>
+                </fieldset>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="questao2" id="questoes2">
+                <fieldset>
+                    <legend>Você estaria disposto a apoiar o projeto em questão?</legend>
+                    <ul class="answers">
+                        <li><label><input type="radio" name="q2" value="Sim"> Sim</label></li>
+                        <li><label><input type="radio" name="q2" value="Nao"> Não</label></li>
+                    </ul>
+                    <button class="botao" onclick="quest(2)">Enviar Resposta</button>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div id="grupo">
+            <div id="email">
+                <a href="mailto:luiz.cunha@sptech.school"><img src="imagens/o-email.png" alt="email"></a>
+                <h2 class="tituloFooter">E-mail</h2>
+                <p class="subtituloFooter">luiz.cunha@sptech.school</p>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
+                <h2 class="tituloFooter">LinkedIn</h2>
+                <p class="subtituloFooter">@LuizGustavoDantas</p>
+            </div>
+            <div id="github">
+                <a href="https://github.com/LuizCunha-G"><img src="imagens/github.png" alt="GitHub"></a>
+                <h2 class="tituloFooter">Github</h2>
+                <p class="subtituloFooter">@LuizCunha-G</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var answers = {}; // Objeto para armazenar as respostas do usuário
+
+    // Função para armazenar a resposta selecionada pelo usuário
+    function storeAnswers(question_number, event) {
+        if (event.target.type === 'radio') {
+            answers['question' + question_number] = event.target.value; // Armazena a resposta no objeto `answers`
+            console.log(answers); // Exibe as respostas no console para fins de depuração
+        }
+    }
+
+    // Adiciona um event listener para a questão 1
+    var question_um = document.getElementById('questoes1');
+    question_um.addEventListener('click', function (event) {
+        storeAnswers(1, event); // Chama a função storeAnswers para a questão 1
+    });
+
+    // Adiciona um event listener para a questão 2
+    var question_dois = document.getElementById('questoes2');
+    question_dois.addEventListener('click', function (event) {
+        storeAnswers(2, event); // Chama a função storeAnswers para a questão 2
+    });
+
+    // Função para enviar as respostas para o servidor
+    function quest() {
+        var respostaPergunta1 = answers.question1; // Obtém a resposta da questão 1 do objeto `answers`
+        var respostaPergunta2 = answers.question2; // Obtém a resposta da questão 2 do objeto `answers`
+
+        // Envia as respostas para o servidor utilizando a API fetch
+        fetch("/questionario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                rp1: respostaPergunta1,
+                rp2: respostaPergunta2
+            })
+        }).then(function (resposta) {
+            // Verifica se a resposta foi bem-sucedida (status 200-299)
+            if (resposta.ok) {
+                alert('Respostas enviadas com sucesso!'); // Exibe um alerta de sucesso
+                setTimeout(() => {
+                    window.location = "dash.html"; // Redireciona para a página dash.html após 2 segundos
+                }, 2000);
+            } else {
+                // Se houver erro na resposta, exibe o texto do erro em um alerta
+                resposta.text().then(texto => {
+                    alert('Erro ao enviar respostas: ' + texto);
+                });
+            }
+        }).catch(function (erro) {
+            // Se ocorrer erro ao enviar as respostas, exibe um alerta
+            alert('Houve um erro ao tentar enviar as respostas!');
+            console.error(erro);
+        });
+    }
+</script>

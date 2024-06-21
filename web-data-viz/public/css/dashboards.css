@@ -162,3 +162,49 @@ canvas {
 }
 
 
+#footer{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+  gap: 2.5%;
+  background-color: #884788;
+}
+
+#grupo{
+ width: 65vw;
+ height: 90%;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-around;
+
+
+}
+
+#email, #linkedin, #github {
+ width: 20vw;
+ height: 95%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column; 
+}
+
+#email img, #linkedin img, #github img {
+ width: 80%; 
+ margin-top: 20px;
+ margin-left: 10px;
+}
+
+#email p, #linkedin p, #github p {
+ margin-top: -10px ; 
+ text-align: center;
+}
+
+#email h2, #linkedin h2, #github h2 {
+ margin-top: -2px ;
+ text-align: center; 
+} 

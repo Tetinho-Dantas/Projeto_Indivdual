@@ -136,6 +136,29 @@
             <button id="botao" onclick="quest()">Enviar Respostas</button>
         </div>
     </div>
+    <div id="footer">
+        <div id="grupo">
+
+            <div id="email">
+                <a href="mailto:luiz.cunha@sptech.school"><img src="imagens/o-email.png" alt="email"></a>
+                <h2 class="tituloFooter">E-mail</h2>
+                <p class="subtituloFooter">luiz.cunha@sptech.school</p>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
+                <h2 class="tituloFooter">LinkedIn</h2>
+                <p class="subtituloFooter">@LuizGustavoDantas</p>
+            </div>
+
+            <div id="github">
+                <a href="https://github.com/LuizCunha-G"><img src="imagens/github.png" alt="GitHub"></a>
+                <h2 class="tituloFooter">Github</h2>
+                <p class="subtituloFooter">@LuizCunha-G</p>
+            </div>
+        </div>
+
+
+    </div>
 
 </body>
 
@@ -239,7 +262,7 @@
     if (resposta.ok) {
         alert('Respostas enviadas com sucesso!');
         setTimeout(() => {
-            window.location = "dash.html";
+            window.location = "questionario.html";
         }, 2000);
     } else {
         resposta.text().then(texto => {

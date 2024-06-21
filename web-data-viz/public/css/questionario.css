@@ -124,7 +124,7 @@ body{
 
  #home{
     width: 100%;
-    height: 460%;
+    height: 100%;
     display: block;
     align-items: center;
     justify-content:center;
@@ -134,18 +134,31 @@ body{
  }
 
  .quiz-container {
-    max-width: 600px;
+    display: flex; /* Adicionado para flex */
+    flex-wrap: wrap; /* Adicionado para permitir quebra de linha se necessário */
+    max-width: 90%;
     margin: auto;
     padding: 20px;
     background-color: #ffff;
     box-shadow: 0px 10px 20px #884788;
     border-radius: 10px;
+    justify-content: space-evenly; /* Espaçamento entre os itens */
+    align-items: center;
+    height: 500px;
 }
-.question {
+
+.questao1{
     margin-bottom: 20px;
+    max-width: 45%; /* Ajustado para ocupar menos espaço e caber lado a lado */
+} 
+.questao2 {
+    margin-bottom: 20px;
+    max-width: 45%; /* Ajustado para ocupar menos espaço e caber lado a lado */
+    margin-top: -8%;
 }
 .question h3 {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
+    font-size: 18px;
 }
 .answers {
     list-style-type: none;
@@ -173,32 +186,20 @@ fieldset {
    background-color: #f3e5f5;
    padding: 20px;
    border: 2px solid #d1c4e9;
+   
 }
 
 legend {
    padding: 0 10px;
    color: #6a1b9a;
    font-weight: bold;
-}
-textarea {
-   width: 95%;
-   border-radius: 10px;
-   border: 2px solid #d1c4e9;
-   padding: 10px;
-   font-family: 'kgprimary', sans-serif;
-   transition: border-color 0.3s, box-shadow 0.3s;
-   resize: vertical;
-   background-color: #f3e5f5;
+   /* margin-bottom: -8%; */
+   font-size: 16px;
 }
 
-textarea:hover {
-   border-color: #6a1b9a;
-   box-shadow: 0 0 10px rgba(106, 27, 154, 0.5);
-}
-
-#botao {
+.botao {
    display: block;
-   width: 100%;
+   width: 40%;
    padding: 10px;
    font-size: 16px;
    color: white;
@@ -209,6 +210,7 @@ textarea:hover {
    transition: background-color 0.3s, box-shadow 0.3s;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    margin-top: 20px;
+   
 }
 
 #botao:hover {
@@ -217,48 +219,48 @@ textarea:hover {
 }
 
 #footer{
-   width: 100%;
-   height: 20%;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+    gap: 2.5%;
+    background-color: #884788;
+ }
+
+ #grupo{
+   width: 65vw;
+   height: 90%;
    display: flex;
+   flex-direction: row;
    align-items: center;
-   justify-content:center;
-   flex-direction: column;
-   gap: 2.5%;
-   background-color: #884788;
-}
+   justify-content: space-around;
+  
 
-#grupo{
-  width: 65vw;
-  height: 90%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
- 
+ }
 
-}
-
-#email, #linkedin, #github {
-  width: 20vw;
-  height: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; 
+ #email, #linkedin, #github {
+   width: 20vw;
+   height: 95%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column; 
 }
 
 #email img, #linkedin img, #github img {
-  width: 80%; 
-  margin-top: 20px;
-  margin-left: 10px;
+   width: 80%; 
+   margin-top: 20px;
+   margin-left: 10px;
 }
 
 #email p, #linkedin p, #github p {
-  margin-top: -10px ; 
-  text-align: center;
+   margin-top: -10px ; 
+   text-align: center;
 }
 
 #email h2, #linkedin h2, #github h2 {
-  margin-top: -2px ;
-  text-align: center; 
+   margin-top: -2px ;
+   text-align: center; 
 }

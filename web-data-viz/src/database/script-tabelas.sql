@@ -34,6 +34,13 @@ CREATE TABLE Respostas (
     Q8 VARCHAR(255),
     Q9 VARCHAR(255)
 );
+
+CREATE TABLE Answers (
+    respostasId INT AUTO_INCREMENT PRIMARY KEY,
+    DataHora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Q1 VARCHAR(255),
+    Q2 VARCHAR(255)
+);
 select * from aviso;
 
 select * from usuario;
