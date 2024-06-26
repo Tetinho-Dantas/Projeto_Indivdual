@@ -53,6 +53,11 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var errorMessage = document.getElementById("error_message");
 
+     // Regular expression for validating password
+     var senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    
+
     if (
       nomeVar === "" ||
       emailVar === "" ||
@@ -73,6 +78,12 @@
     }
     else if (senhaVar !== confirmacaoSenhaVar) {
       errorMessage.textContent = 'As senhas não coincidem.';
+      errorMessage.style.display = 'block';
+      setTimeout(sumirMensagem, 5000);
+      return;
+    }
+    else if (!senhaRegex.test(senhaVar)) {
+      errorMessage.textContent = 'A senha deve conter pelo menos 8 caracteres, incluindo um número, uma letra maiúscula e um caractere especial.';
       errorMessage.style.display = 'block';
       setTimeout(sumirMensagem, 5000);
       return;

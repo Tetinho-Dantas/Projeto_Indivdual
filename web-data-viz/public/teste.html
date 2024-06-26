@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="./imagens/SpecialE.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpacialE | Dashboards</title>
+
+    <link rel="stylesheet" href="./css/workarea.css">
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="path/to/your/estilo.css"> <!-- Update the path as necessary -->
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #navbar {
+            background-color: #ff69b4;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #nav_logo img {
+            height: 40px;
+        }
+
+        #nav_link {
+            display: flex;
+            align-items: center;
+        }
+
+        .link {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-button {
+            background-color: white;
+            color: #ff69b4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            background-color: #808080;
+            padding: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 70%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background-color: #505050;
+            padding: 20px;
+            width: 20%;
+        }
+
+        .sidebar div {
+            background-color: white;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-info {
+            display: flex;
+            justify-content: space-around;
+            width: 70%;
+            background-color: #505050;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .chart-info div {
+            text-align: center;
+            flex: 1;
+        }
+
+        #footer {
+            background-color: #505050;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #footer div {
+            margin-bottom: 10px;
+        }
+
+        #footer img {
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        #footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="nav_logo">
+            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE">
+        </div>
+        <div id="nav_link">
+            <a id="link_home" class="link" href="index.html">SpecialE</a>
+            <a id="link_servicos" class="link" href="mural.html">Mural</a>
+            <a id="link_home" class="link" href="pre_quiz.html">Quiz</a>
+            <a id="link_login" class="link-button" href="login.html">Login</a>
+        </div>
+    </div>
+
+    <section class="home">
+        <div class="chart-container">
+            <!-- Chart.js canvas -->
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="sidebar">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="chart-info">
+            <div>
+                <p>60%</p>
+                <p>Sim</p>
+            </div>
+            <div>
+                <p>40%</p>
+                <p>Não</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer">
+        <div id="grupo">
+            <div id="email">
+                <a href="mailto:luiz.cunha@sptech.school"><img src="imagens/o-email.png" alt="email"></a>
+                <h2 class="tituloFooter">E-mail</h2>
+                <p class="subtituloFooter">luiz.cunha@sptech.school</p>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
+                <h2 class="tituloFooter">LinkedIn</h2>
+                <p class="subtituloFooter">@LuizGustavoDantas</p>
+            </div>
+            <div id="github">
+                <a href="https://github.com/LuizCunha-G"><img src="imagens/github.png" alt="GitHub"></a>
+                <h2 class="tituloFooter">Github</h2>
+                <p class="subtituloFooter">@LuizCunha-G</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example Chart.js code
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

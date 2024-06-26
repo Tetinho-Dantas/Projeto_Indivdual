@@ -1,0 +1,296 @@
+/* Importa a fonte Barlow do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+/* Estilos Gerais */
+body {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimento padrão */
+  font-family: 'Barlow', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a família de fontes */
+}
+
+/* Barra de Navegação */
+#navbar {
+  width: 100%; /* Largura total da barra de navegação */
+  height: 12vh; /* Altura da barra de navegação */
+  background-color: rgb(235, 220, 243); /* Cor de fundo */
+  top: 0; /* Posicionamento no topo */
+  display: flex; /* Usa Flexbox para layout */
+  justify-content: space-between; /* Espaça itens igualmente */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  box-shadow: -20px -20px 100px #e6bff1; /* Sombra para a barra de navegação */
+  border-bottom: 3px solid; /* Borda inferior */
+  border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
+  border-image-slice: 1; /* Define como o gradiente é aplicado à borda */
+}
+
+#nav_link {
+  width: 70%; /* Largura do container de links */
+  height: 100%; /* Altura do container de links */
+  display: flex; /* Usa Flexbox para layout */
+  justify-content: right; /* Alinha itens à direita */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  gap: 10%; /* Espaçamento entre links */
+  flex-direction: row; /* Orientação dos itens na linha */
+  padding-right: 5%; /* Preenchimento à direita */
+}
+
+/* Estilo dos links na barra de navegação */
+.link {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: black; /* Cor do texto dos links */
+}
+
+.link:hover {
+  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+  color: rgb(78, 20, 95); /* Muda a cor do texto ao passar o mouse */
+}
+
+/* Estilo específico para os links Home e Serviços */
+#link_home, #link_servicos {
+  display: flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  font-size: 1.5vw; /* Tamanho da fonte */
+  color: #884788; /* Cor do texto */
+  font-style: normal; /* Estilo da fonte */
+}
+
+#link_home {
+  width: 5vw; /* Largura específica para o link home */
+  height: 2.5vw; /* Altura específica para o link home */
+}
+
+#link_servicos {
+  width: 6.2vw; /* Largura específica para o link serviços */
+  height: 2.5vw; /* Altura específica para o link serviços */
+}
+
+/* Estilo do botão de link na barra de navegação */
+.link-button {
+  display: inline-flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  font-size: 1.5vw; /* Tamanho da fonte */
+  background-color: rgb(236, 181, 234); /* Cor de fundo */
+  border: 3px solid #884788; /* Borda */
+  border-radius: 50px; /* Bordas arredondadas */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  color: white; /* Cor do texto */
+  font-style: normal; /* Estilo da fonte */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Animações de transição */
+  text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.link-button:hover {
+  background-color: #884788; /* Cor de fundo ao passar o mouse */
+  border-color: rgb(236, 181, 234); /* Cor da borda ao passar o mouse */
+  color: white; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo do container do logo na barra de navegação */
+#nav_logo {
+  display: flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  width: 15%; /* Largura do container do logo */
+  height: 100%; /* Altura do container do logo */
+}
+
+/* Estilo do logo na barra de navegação */
+#logo {
+  height: 90%; /* Altura do logo */
+}
+
+/* Estilo da seção Home */
+.home {
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  display: flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  flex-direction: row; /* Orientação dos itens na linha */
+  gap: 2.5%; /* Espaçamento entre itens */
+  background-color: #ffffff; /* Cor de fundo */
+}
+
+/* Estilo do parágrafo da tela 1 */
+#p_tela1 {
+  margin-top: -20px; /* Margem superior negativa */
+  width: 100%; /* Largura total */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  display: flex; /* Usa Flexbox para layout */
+}
+
+/* Estilo da imagem */
+.foto {
+  width: 100%; /* Largura total da imagem */
+  height: 70vh; /* Altura da imagem */
+  object-fit: cover; /* Ajusta a imagem para cobrir o container */
+  padding: auto; /* Preenchimento automático */
+  display: flex; /* Usa Flexbox para layout */
+  margin-top: 6%; /* Margem superior */
+  margin-left: 3%; /* Margem esquerda */
+}
+
+/* Estilo da tela 2 */
+#tela2 {
+  height: 90vh; /* Altura da tela 2 */
+  width: 70%; /* Largura da tela 2 */
+  background-color: #FFFFFF; /* Cor de fundo */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: row; /* Orientação dos itens na linha */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: start; /* Alinha itens ao início */
+}
+
+/* Estilo da seção à esquerda na tela 2 */
+.left {
+  height: 90vh; /* Altura */
+  width: 50%; /* Largura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  gap: 30px; /* Espaçamento entre itens */
+}
+
+/* Estilo da seção à direita na tela 2 */
+.right {
+  height: 90vh; /* Altura */
+  width: 50%; /* Largura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  gap: 30px; /* Espaçamento entre itens */
+}
+
+/* Estilo das descrições de dashboard e mural */
+.desc_dash, .desc_mural {
+  font-size: 20px; /* Tamanho da fonte */
+  height: 75%; /* Altura */
+  width: 80%; /* Largura */
+  box-shadow: 0px 10px 20px #be8abe; /* Sombra */
+  border-radius: 10px; /* Bordas arredondadas */
+  background:  #884788; /* Cor de fundo */
+}
+
+/* Estilo dos botões de mural e dashboard */
+.button_mural, .button_dash {
+  border-radius: 30px; /* Bordas arredondadas */
+  height: 8%; /* Altura */
+  width: 65%; /* Largura */
+  text-align: center; /* Alinhamento do texto */
+  font-size: 20px; /* Tamanho da fonte */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  background:  #8a456d; /* Cor de fundo */
+  box-shadow: 0px 10px 20px #ca96ca; /* Sombra */
+}
+
+/* Estilo da seção hom */
+.hom {
+  width: 100%; /* Largura total */
+  height: 90vh; /* Altura */
+  max-width: 1500px; /* Largura máxima */
+  display: flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  flex-direction: row; /* Orientação dos itens na linha */
+  gap: 2.5%; /* Espaçamento entre itens */
+  background-color: rgb(235, 220, 243); /* Cor de fundo */
+}
+
+/* Estilo da seção ranking */
+.ranking {
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  background-color: rgb(236, 181, 234); /* Cor de fundo */
+  padding: 20px; /* Preenchimento */
+  width: 30%; /* Largura */
+  height: 90%; /* Altura */
+  gap: 30px; /* Espaçamento entre itens */
+  margin-left: 2%; /* Margem esquerda */
+}
+
+/* Estilo dos itens de ranking */
+.pr {
+  background-color: white; /* Cor de fundo */
+  margin-bottom: 10px; /* Margem inferior */
+  padding: 10px; /* Preenchimento */
+  width: 95%; /* Largura */
+  height: 120px; /* Altura */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Estilo das informações do gráfico */
+.chart-info {
+  display: flex; /* Usa Flexbox para layout */
+  justify-content: space-around; /* Espaça itens igualmente */
+  width: 70%; /* Largura */
+  height: 20%; /* Altura */
+  padding: 20px; /* Preenchimento */
+  color: white; /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  margin-bottom: auto; /* Margem inferior automática */
+  margin-top: 80px; /* Margem superior */
+}
+
+/* Estilo dos botões de sim e não */
+.sim, .nao {
+  text-align: center; /* Alinhamento do texto */
+  width: 30%; /* Largura */
+  border: #811181 2px solid; /* Borda */
+}
+
+/* Estilo do rodapé */
+#footer {
+  width: 100%; /* Largura total */
+  height: 20%; /* Altura */
+  display: flex; /* Usa Flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  gap: 2.5%; /* Espaçamento entre itens */
+  background-color: #884788; /* Cor de fundo */
+}
+
+/* Estilo do container de grupo no rodapé */
+#grupo {
+  width: 65vw; /* Largura */
+  height: 90%; /* Altura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: row; /* Orientação dos itens na linha */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: space-around; /* Espaça itens igualmente */
+}
+
+/* Estilo dos containers individuais no rodapé */
+#email, #linkedin, #github {
+  width: 20vw; /* Largura */
+  height: 95%; /* Altura */
+  display: flex; /* Usa Flexbox para layout */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  flex-direction: column; /* Orientação dos itens na coluna */
+}
+
+/* Estilo das imagens no rodapé */
+#email img, #linkedin img, #github img {
+  width: 80%; /* Largura */
+  margin-top: 20px; /* Margem superior */
+  margin-left: 10px; /* Margem esquerda */
+}
+
+/* Estilo dos parágrafos no rodapé */
+#email p, #linkedin p, #github p {
+  margin-top: -10px; /* Margem superior negativa */
+  text-align: center; /* Alinhamento do texto */
+}
+
+/* Estilo dos títulos no rodapé */
+#email h2, #linkedin h2, #github h2 {
+  margin-top: -2px; /* Margem superior negativa */
+  text-align: center; /* Alinhamento do texto */
+}
