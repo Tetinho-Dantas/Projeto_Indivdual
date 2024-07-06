@@ -32,6 +32,7 @@
         </div>
         <div id="nav_link">
             <a id="link_home" class="link" href="index.html">SpecialE</a>
+            <a id="link_home" class="link" href="workarea.html">Área de Trabalho</a>
             <a id="link_servicos" class="link" href="mural.html">Mural</a>
             <a id="link_home" class="link" href="pre_quiz.html">Quiz</a>
             <a id="link_login" class="link-button" href="login.html">Login</a>
@@ -105,7 +106,7 @@
 <script>
     window.onload = function () {
         if (sessionStorage.NOME_USUARIO) {
-            document.getElementById('b_usuario').innerText = sessionStorage.NOME_USUARIO;
+            document.getElementById('b_usuario').innerText = " Seja Bem vindo, " + sessionStorage.NOME_USUARIO;
         }
         
         exibirRespostasQuizQ1();

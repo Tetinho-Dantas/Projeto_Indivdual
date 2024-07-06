@@ -36,6 +36,7 @@ var medidasRouter = require("./src/routes/medidas");
 var aquariosRouter = require("./src/routes/aquarios");
 var quizRouter = require("./src/routes/quiz");
 var questionarioRouter = require("./src/routes/questionario"); // adicionada variavel para aplicação da rota
+var resultRouter = require("./src/routes/result");
 var empresasRouter = require("./src/routes/empresas");
 
 // Define middlewares para processar requisições
@@ -54,6 +55,7 @@ app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 app.use("/quiz", quizRouter);
 app.use("/questionario", questionarioRouter);
+app.use("/result", resultRouter);
 
 // Inicia o servidor Express na porta definida
 app.listen(PORTA_APP, function () {

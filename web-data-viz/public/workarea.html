@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpacialE | Dashboards</title>
+    <title>SpecialE | Area de Trabalho</title>
 
     <link rel="stylesheet" href="./css/workarea.css">
     <script src="../js/sessao.js"></script>
@@ -20,22 +20,22 @@
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="path/to/your/estilo.css"> <!-- Update the path as necessary -->
     <!-- Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<<body>
+<body>
     <!-- Barra de navegação -->
     <div id="navbar">
         <!-- Logo da barra de navegação -->
         <div id="nav_logo">
-            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE">
+            <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE" href="index.html">
         </div>
         <!-- Links de navegação -->
         <div id="nav_link">
             <a id="link_home" class="link" href="index.html">SpecialE</a>
             <a id="link_servicos" class="link" href="mural.html">Mural</a>
+            <a id="link_home" class="link" href="dash.html">Dashboard</a>
             <a id="link_home" class="link" href="pre_quiz.html">Quiz</a>
             <a id="link_login" class="link-button" href="login.html">Login</a>
         </div>
@@ -67,10 +67,10 @@
     <section class="hom">
         <!-- Ranking com quatro elementos -->
         <div class="ranking">
-            <div class="pr"></div>
-            <div class="pr"></div>
-            <div class="pr"></div>
-            <div class="pr"></div>
+            <div class="pr" id="rank1"></div>
+            <div class="pr" id="rank2"></div>
+            <div class="pr" id="rank3"></div>
+            <div class="pr" id="rank4"></div>
         </div>
 
         <!-- Informações do gráfico -->
@@ -113,3 +113,66 @@
 
 
 </html>
+
+<script>
+    function fetchGrafico() {
+        // Faz uma requisição GET para o endpoint "/result/buscandoQ1"
+        fetch("/result/buscandoQ1", {
+            method: "GET", // Define o método da requisição como GET
+            headers: {
+                "Content-Type": "application/json" // Define o tipo de conteúdo como JSON
+            }
+        }).then(function (response) {
+            console.log("Estou no then do gráfico!");
+    
+            // Verifica se a resposta da requisição é bem-sucedida
+            if (response.ok) {
+                console.log(response)
+                // Converte a resposta para JSON e processa os dados
+                response.json().then(function (dados) {
+                    console.log(`Dados recebidos ${JSON.stringify(dados)}` );
+                    // Chama a função para atualizar o gráfico com os dados recebidos
+                    atualizarGrafico(dados);
+                });
+            } else {
+                // Caso a resposta não seja bem-sucedida, loga um erro
+                console.log("Houve um erro ao capturar os dados do gráfico!");
+                console.error("Status da resposta:", response.status);
+            }
+        }).catch(function (erro) {
+            // Loga qualquer erro que ocorra durante a requisição
+            console.error("Erro na requisição:", erro);
+        });
+    }
+        
+    function atualizarGrafico(dados) {
+        console.log(dados);
+        
+        // Limpa os dados antigos dos elementos HTML
+        top1.innerHTML = '';
+        top2.innerHTML = '';
+        top3.innerHTML = '';
+        top4.innerHTML = '';
+        
+        // Ordena os dados pelo campo 'answers' em ordem decrescente
+        dados.sort((a, b) => b.answers - a.answers);
+        
+        // Atualiza os elementos HTML com os novos dados
+        top1.innerHTML = `${dados[0].Q1}: ${dados[0].answers}`;
+        top2.innerHTML = `${dados[1].Q1}: ${dados[1].answers}`;
+        top3.innerHTML = `${dados[2].Q1}: ${dados[2].answers}`;
+        top4.innerHTML = `${dados[3].Q1}: ${dados[3].answers}`;
+        
+        console.log(dados, 'NA SEQUÊNCIA');
+    }
+        
+    // Chama a função para atualizar o gráfico ao carregar a página
+    document.addEventListener('DOMContentLoaded', fetchGrafico);
+    
+    // (Comentado: Atualiza o gráfico a cada 30 segundos)
+    // setInterval(fetchGrafico, 30000);
+    
+    </script>
+    
+    
+   

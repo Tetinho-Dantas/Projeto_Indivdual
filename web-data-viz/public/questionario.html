@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>SpecialE | Quiz</title>
     <link rel="stylesheet" href="./css/questionario.css">
     <link rel="shortcut icon" type="image/png" href="./imagens/SpecialE.png">
 </head>
@@ -17,6 +17,7 @@
         </div>
         <div id="nav_link">
             <a id="link_home" class="link" href="./index.html">SpecialE</a>
+            <a id="link_home" class="link" href="./workarea.html">Area de Trabalho</a>
             <a id="link_equipe" class="link" href="./mural.html">Mural</a>
             <a id="link_home" class="link" href="dash.html">Dashboard</a>
             <a id="link_login" class="link-button" href="login.html">Login</a>
@@ -122,7 +123,7 @@
             if (resposta.ok) {
                 alert('Respostas enviadas com sucesso!'); // Exibe um alerta de sucesso
                 setTimeout(() => {
-                    window.location = "dash.html"; // Redireciona para a página dash.html após 2 segundos
+                    window.location = "workarea.html"; // Redireciona para a página dash.html após 2 segundos
                 }, 2000);
             } else {
                 // Se houver erro na resposta, exibe o texto do erro em um alerta

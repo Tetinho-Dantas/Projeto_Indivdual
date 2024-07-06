@@ -208,7 +208,7 @@ body {
   justify-content: center; /* Alinha itens horizontalmente ao centro */
   background-color: rgb(236, 181, 234); /* Cor de fundo */
   padding: 20px; /* Preenchimento */
-  width: 30%; /* Largura */
+  width: 20%; /* Largura */
   height: 90%; /* Altura */
   gap: 30px; /* Espaçamento entre itens */
   margin-left: 2%; /* Margem esquerda */
@@ -243,6 +243,7 @@ body {
   width: 30%; /* Largura */
   border: #811181 2px solid; /* Borda */
 }
+
 
 /* Estilo do rodapé */
 #footer {
