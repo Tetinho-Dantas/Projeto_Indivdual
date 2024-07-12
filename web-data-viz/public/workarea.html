@@ -53,12 +53,18 @@
         <!-- Segunda tela com links para dashboards e mural -->
         <div id="tela2">
             <div class="left">
-                <div class="desc_dash"></div>
-                <div class="button_dash"><a href="./dash.html">io</a></div>
+                <div class="desc_dash">
+                    <h1>Quiz do Projeto</h1>
+                    <p>O quiz do seu projeto é uma ferramenta interativa composta por 9 perguntas, cada uma com 4 respostas possíveis. Ele foi desenvolvido para coletar e analisar as opiniões dos usuários sobre diversos temas. Os resultados são apresentados em gráficos de pizza, permitindo uma visualização clara de quantas respostas foram selecionadas para cada alternativa. O objetivo do quiz é engajar os usuários, promover a reflexão e fornecer dados valiosos para análise.</p>
+                </div>
+                <div class="button_dash"><a href="./quiz.html">Quiz</a></div>
             </div>
             <div class="right">
-                <div class="desc_mural"></div>
-                <div class="button_mural"><a href="./mural.html">oi</a></div>
+                <div class="desc_mural">
+                    <h1>Mural</h1>
+                    <p>O mural de avisos do seu projeto é uma plataforma dinâmica onde atualizações, notificações importantes e mensagens podem ser compartilhadas com os usuários. Ele serve como um ponto central de comunicação, garantindo que todos estejam informados sobre eventos, mudanças e outras informações relevantes. O mural facilita a interação e mantém os usuários atualizados, fortalecendo a comunidade em torno do seu projeto.</p>
+                </div>
+                <div class="button_mural"><a href="./mural.html">Mural</a></div>
             </div>
         </div>
     </section>
@@ -76,11 +82,11 @@
         <!-- Informações do gráfico -->
         <div class="chart-info">
             <div class="sim">
-                <p>60%</p>
+                <p id="sim-percentage">60%</p>
                 <p>Sim</p>
             </div>
             <div class="nao">
-                <p>40%</p>
+                <p id="nao-percentage">40%</p>
                 <p>Não</p>
             </div>
         </div>
@@ -115,63 +121,88 @@
 </html>
 
 <script>
-    function fetchGrafico() {
-        // Faz uma requisição GET para o endpoint "/result/buscandoQ1"
-        fetch("/result/buscandoQ1", {
-            method: "GET", // Define o método da requisição como GET
-            headers: {
-                "Content-Type": "application/json" // Define o tipo de conteúdo como JSON
-            }
-        }).then(function (response) {
-            console.log("Estou no then do gráfico!");
-    
-            // Verifica se a resposta da requisição é bem-sucedida
-            if (response.ok) {
-                console.log(response)
-                // Converte a resposta para JSON e processa os dados
-                response.json().then(function (dados) {
-                    console.log(`Dados recebidos ${JSON.stringify(dados)}` );
-                    // Chama a função para atualizar o gráfico com os dados recebidos
-                    atualizarGrafico(dados);
-                });
-            } else {
-                // Caso a resposta não seja bem-sucedida, loga um erro
-                console.log("Houve um erro ao capturar os dados do gráfico!");
-                console.error("Status da resposta:", response.status);
-            }
-        }).catch(function (erro) {
-            // Loga qualquer erro que ocorra durante a requisição
-            console.error("Erro na requisição:", erro);
-        });
-    }
-        
-    function atualizarGrafico(dados) {
-        console.log(dados);
-        
-        // Limpa os dados antigos dos elementos HTML
-        top1.innerHTML = '';
-        top2.innerHTML = '';
-        top3.innerHTML = '';
-        top4.innerHTML = '';
-        
-        // Ordena os dados pelo campo 'answers' em ordem decrescente
-        dados.sort((a, b) => b.answers - a.answers);
-        
-        // Atualiza os elementos HTML com os novos dados
-        top1.innerHTML = `${dados[0].Q1}: ${dados[0].answers}`;
-        top2.innerHTML = `${dados[1].Q1}: ${dados[1].answers}`;
-        top3.innerHTML = `${dados[2].Q1}: ${dados[2].answers}`;
-        top4.innerHTML = `${dados[3].Q1}: ${dados[3].answers}`;
-        
-        console.log(dados, 'NA SEQUÊNCIA');
-    }
-        
-    // Chama a função para atualizar o gráfico ao carregar a página
-    document.addEventListener('DOMContentLoaded', fetchGrafico);
-    
-    // (Comentado: Atualiza o gráfico a cada 30 segundos)
-    // setInterval(fetchGrafico, 30000);
-    
+    // Função para buscar e exibir o ranking
+    function buscarRanking() {
+            // Fazendo uma requisição GET para buscar as posições do ranking
+            fetch("/result/buscandoQ1", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                // Se a resposta for bem-sucedida
+                if (resposta.ok) {
+                    // Converte a resposta em JSON
+                    resposta.json().then(json => {
+                        console.log(json);
+
+                        // Atualiza os elementos do HTML com os dados recebidos
+                        if (json.length >= 4) {
+                            document.getElementById("rank1").innerHTML = json[0].categoria + ": " + json[0].respostas;
+                            document.getElementById("rank2").innerHTML = json[1].categoria + ": " + json[1].respostas;
+                            document.getElementById("rank3").innerHTML = json[2].categoria + ": " + json[2].respostas;
+                            document.getElementById("rank4").innerHTML = json[3].categoria + ": " + json[3].respostas;
+                        } else {
+                            console.error("Número insuficiente de resultados recebidos");
+                        }
+                    });
+                } else {
+                    throw "Houve um erro ao tentar buscar o ranking!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
+
+        // Chama a função buscarRanking quando a página é carregada
+        document.addEventListener('DOMContentLoaded', buscarRanking);
+
+         // Função para buscar e atualizar as porcentagens de "Sim" e "Não"
+         function buscarPorcentagens() {
+            // Fazendo uma requisição GET para buscar as contagens de respostas
+            fetch("/result/buscandoQ2", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                // Se a resposta for bem-sucedida
+                if (resposta.ok) {
+                    // Converte a resposta em JSON
+                    resposta.json().then(json => {
+                        console.log(json);
+
+                        // Calcula o total de respostas
+                        const totalRespostas = json.reduce((acc, curr) => acc + curr.respostas, 0);
+                        const simRespostas = json.find(item => item.categoria === 'Sim')?.respostas || 0;
+                        const naoRespostas = json.find(item => item.categoria === 'Não')?.respostas || 0;
+
+                        // Calcula as porcentagens de "Sim" e "Não"
+                        const simPercentage = ((simRespostas / totalRespostas) * 100).toFixed(2) + '%';
+                        const naoPercentage = ((naoRespostas / totalRespostas) * 100).toFixed(2) + '%';
+
+                        // Atualiza os elementos do HTML com as porcentagens calculadas
+                        document.getElementById("sim-percentage").innerHTML = simPercentage;
+                        document.getElementById("nao-percentage").innerHTML = naoPercentage;
+                    });
+                } else {
+                    throw "Houve um erro ao tentar buscar os dados!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
+
+        // Chama a função buscarPorcentagens quando a página é carregada
+        document.addEventListener('DOMContentLoaded', buscarPorcentagens);
     </script>
     
     

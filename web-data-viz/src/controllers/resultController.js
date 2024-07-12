@@ -1,30 +1,46 @@
-// Importa o módulo respostaModel que contém a função buscandoQ1
 var respostaModel = require('../models/resultModel');
 
-// Define a função buscandoQ1 que será usada como controlador para a rota correspondente
+// Função para buscar a contagem de respostas para cada categoria
 function buscandoQ1(req, res) {
-    // Chama a função buscandoQ1 do modelo respostaModel
-    respostaModel.buscandoQ1().then(resultado => {
-        // Loga a resposta do modelo no console
-        console.log("Resposta do modelo: ", resultado);
-        
-        // Verifica se a consulta retornou algum resultado
-        if (resultado.rowCount > 0) {
-            // Se houver resultados, envia uma resposta com status 200 e os dados em formato JSON
+    console.log(`Recuperando contagem de respostas para cada categoria`);
+
+    // Chama a função do modelo para buscar a contagem de respostas no banco de dados
+    respostaModel.buscandoQ1().then(function (resultado) {
+        if (resultado.length > 0) {
+            // Retorna o resultado em formato JSON com status 200 (OK)
             res.status(200).json(resultado);
         } else {
-            // Se não houver resultados, envia uma resposta com status 204 (sem conteúdo)
+            // Retorna status 204 se nenhum resultado for encontrado
             res.status(204).send("Nenhum resultado encontrado!");
         }
-    }).catch(error => {
-        // Loga qualquer erro que ocorra durante a busca dos resultados
-        console.log("Houve um erro ao buscar os resultados.", error);
-        // Envia uma resposta com status 500 e uma mensagem de erro em formato JSON
-        res.status(500).json({ error: error.message });
+    }).catch(function (erro) {
+        console.log("Houve um erro ao buscar as respostas.", erro);
+        // Retorna status 500 se houver um erro na execução da consulta
+        res.status(500).json({ error: erro.message });
     });
 }
 
-// Exporta a função buscandoQ1 para que possa ser usada em outros arquivos
+// Função para buscar a contagem de respostas para cada categoria de Q2
+function buscandoQ2(req, res) {
+    console.log(`Recuperando contagem de respostas para cada categoria`);
+
+    // Chama a função do modelo para buscar a contagem de respostas no banco de dados
+    respostaModel.buscandoQ2().then(function (resultado) {
+        if (resultado.length > 0) {
+            // Retorna o resultado em formato JSON com status 200 (OK)
+            res.status(200).json(resultado);
+        } else {
+            // Retorna status 204 se nenhum resultado for encontrado
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function (erro) {
+        console.log("Houve um erro ao buscar as respostas.", erro);
+        // Retorna status 500 se houver um erro na execução da consulta
+        res.status(500).json({ error: erro.message });
+    });
+}
+
 module.exports = {
-    buscandoQ1
+    buscandoQ1,
+    buscandoQ2
 };

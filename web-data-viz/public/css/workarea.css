@@ -7,7 +7,7 @@ body {
   padding: 0; /* Remove preenchimento padrão */
   font-family: 'Barlow', 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a família de fontes */
 }
-
+/* ==================================================================================================================== */
 /* Barra de Navegação */
 #navbar {
   width: 100%; /* Largura total da barra de navegação */
@@ -109,9 +109,11 @@ body {
   justify-content: center; /* Alinha itens horizontalmente ao centro */
   flex-direction: row; /* Orientação dos itens na linha */
   gap: 2.5%; /* Espaçamento entre itens */
-  background-color: #ffffff; /* Cor de fundo */
+  background-color: #f3ddf8; /* Cor de fundo */
 }
 
+
+/* ==================================================================================================================== */
 /* Estilo do parágrafo da tela 1 */
 #p_tela1 {
   margin-top: -20px; /* Margem superior negativa */
@@ -130,13 +132,14 @@ body {
   display: flex; /* Usa Flexbox para layout */
   margin-top: 6%; /* Margem superior */
   margin-left: 3%; /* Margem esquerda */
+  border-radius: 10px;
 }
 
 /* Estilo da tela 2 */
 #tela2 {
   height: 90vh; /* Altura da tela 2 */
   width: 70%; /* Largura da tela 2 */
-  background-color: #FFFFFF; /* Cor de fundo */
+  background-color: #f3ddf8; /* Cor de fundo */
   display: flex; /* Usa Flexbox para layout */
   flex-direction: row; /* Orientação dos itens na linha */
   align-items: center; /* Alinha itens verticalmente ao centro */
@@ -167,24 +170,36 @@ body {
 
 /* Estilo das descrições de dashboard e mural */
 .desc_dash, .desc_mural {
-  font-size: 20px; /* Tamanho da fonte */
+  font-size: 18px; /* Tamanho da fonte */
   height: 75%; /* Altura */
   width: 80%; /* Largura */
-  box-shadow: 0px 10px 20px #be8abe; /* Sombra */
+  border: 10px solid #884788;
   border-radius: 10px; /* Bordas arredondadas */
-  background:  #884788; /* Cor de fundo */
+  background:  #e9cbf0; /* Cor de fundo */
+  text-align: start;
+  padding: 12px; /* Preenchimento automático */
 }
 
-/* Estilo dos botões de mural e dashboard */
+/* Estilo base para classes .button_mural e .button_dash */
 .button_mural, .button_dash {
   border-radius: 30px; /* Bordas arredondadas */
-  height: 8%; /* Altura */
-  width: 65%; /* Largura */
-  text-align: center; /* Alinhamento do texto */
-  font-size: 20px; /* Tamanho da fonte */
+  height: 8%; /* Altura do botão */
+  width: 65%; /* Largura do botão */
+  text-align: center; /* Alinhamento do texto no centro */
+  font-size: 28px; /* Tamanho da fonte */
   align-items: center; /* Alinha itens verticalmente ao centro */
-  background:  #8a456d; /* Cor de fundo */
+  background:  #81426793; /* Cor de fundo com transparência */
   box-shadow: 0px 10px 20px #ca96ca; /* Sombra */
+  font-style: normal; /* Estilo normal da fonte */
+  border: #520a52 5px solid; /* Borda sólida com cor */
+}
+
+/* Estilo para os links dentro dos botões */
+.button_mural a, .button_dash a {
+  font-style: normal; /* Estilo normal da fonte */
+  text-decoration: none; /* Sem decoração de texto (sublinhado) */
+  margin-top: 50px; /* Espaçamento superior */
+  color: white; /* Cor do texto branca */
 }
 
 /* Estilo da seção hom */
@@ -197,7 +212,7 @@ body {
   justify-content: center; /* Alinha itens horizontalmente ao centro */
   flex-direction: row; /* Orientação dos itens na linha */
   gap: 2.5%; /* Espaçamento entre itens */
-  background-color: rgb(235, 220, 243); /* Cor de fundo */
+  background-color: rgb(215, 192, 228); /* Cor de fundo */
 }
 
 /* Estilo da seção ranking */
@@ -212,16 +227,25 @@ body {
   height: 90%; /* Altura */
   gap: 30px; /* Espaçamento entre itens */
   margin-left: 2%; /* Margem esquerda */
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px #ca96ca;
 }
 
 /* Estilo dos itens de ranking */
 .pr {
-  background-color: white; /* Cor de fundo */
+  background-color: rgb(250, 237, 255); /* Cor de fundo */
   margin-bottom: 10px; /* Margem inferior */
   padding: 10px; /* Preenchimento */
   width: 95%; /* Largura */
   height: 120px; /* Altura */
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+  font-size: 20px;
+  font-weight: bold;
+  color: #811181;
+  text-align: center;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  
 }
 
 /* Estilo das informações do gráfico */
@@ -231,20 +255,26 @@ body {
   width: 70%; /* Largura */
   height: 20%; /* Altura */
   padding: 20px; /* Preenchimento */
-  color: white; /* Cor do texto */
+  color: #520a52; /* Cor do texto */
   font-weight: bold; /* Texto em negrito */
   margin-bottom: auto; /* Margem inferior automática */
   margin-top: 80px; /* Margem superior */
+  
 }
 
 /* Estilo dos botões de sim e não */
 .sim, .nao {
   text-align: center; /* Alinhamento do texto */
   width: 30%; /* Largura */
-  border: #811181 2px solid; /* Borda */
+  border: #811181 5px solid; /* Borda */
+  border-radius: 10px; /* Rádio da borda */
+  background-color: rgb(215, 192, 228); /* Cor de fundo */
+  font-size: 18px;
+  box-shadow: 0px 10px 20px #946794;
 }
 
 
+/* ==================================================================================================================== */
 /* Estilo do rodapé */
 #footer {
   width: 100%; /* Largura total */

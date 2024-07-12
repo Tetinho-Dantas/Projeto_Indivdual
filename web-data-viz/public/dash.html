@@ -962,7 +962,7 @@ function plotarGraficoQ6(resposta) {
     function plotarGraficoQ9(resposta) {
         console.log('iniciando plotagem do gráfico...');
 
-        let labels = ['Sim, completamente', 'Em parte', 'Pouco', 'Não'];
+        let labels = ['Sim, totalmente', 'Em parte', 'Pouco', 'Não'];
 
         let dados = {
             labels: labels,
@@ -987,7 +987,7 @@ function plotarGraficoQ6(resposta) {
 
         for (let i = 0; i < resposta.length; i++) {
             var Q9 = resposta[i];
-            dados.datasets[0].data[0] += parseInt(Q9.Sim_Completamente_Q9);
+            dados.datasets[0].data[0] += parseInt(Q9.Sim_Totalmente_Q9);
             dados.datasets[0].data[1] += parseInt(Q9.Em_Parte_Q9);
             dados.datasets[0].data[2] += parseInt(Q9.Pouco_Q9);
             dados.datasets[0].data[3] += parseInt(Q9.Nao_Q9);

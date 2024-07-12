@@ -1,12 +1,11 @@
-// Importa o módulo express para criar um roteador
 var express = require('express');
-// Cria uma instância do roteador
 var router = express.Router();
-// Importa o controlador que contém a função buscandoQ1
 var resultController = require('../controllers/resultController');
 
-// Define uma rota GET para '/buscandoQ1' que chama a função buscandoQ1 do controlador
+// Define uma rota GET para '/buscandoQ1' que chama a função buscarPosicao do controlador
 router.get('/buscandoQ1', resultController.buscandoQ1);
 
-// Exporta o roteador para que possa ser usado em outros módulos
+// Define uma rota GET para '/buscandoQ1' que chama a função buscarPosicao do controlador
+router.get('/buscandoQ2', resultController.buscandoQ2);
+
 module.exports = router;

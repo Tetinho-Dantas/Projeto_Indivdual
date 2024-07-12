@@ -13,7 +13,7 @@
 <body>
     <div class="pai">
         <div class="voltar">
-            <a href="index.html"> <img src="imagens/botao-voltar.png" class="img2"></a>
+            <a href="login.html"> <img src="imagens/botao-voltar.png" class="img2"></a>
         </div>
         <h1>Crie sua conta</h1>
         <br><br>
@@ -28,6 +28,16 @@
         <div class="input-field">
             <input type="password" name="Senha" id="senha_input" required="required" autocomplete="off">
             <span>Senha</span>
+            <!-- foi adicionado um bloco informando o usuario as requisições para fazer a senha -->
+            <div class="tooltip">
+              <p>Requisitos da senha:</p>
+              <ul>
+                  <li>Min. 8 caracteres</li>
+                  <li>1 número</li>
+                  <li>1 letra maiúscula</li>
+                  <li>1 caractere especial</li>
+              </ul>
+          </div>
         </div>
         <div class="input-field">
             <input type="password" name="confSenha" id="confirmacao_senha_input" required="required" autocomplete="off">

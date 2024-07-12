@@ -102,3 +102,27 @@ SELECT
     (SELECT COUNT(Q9) FROM Respostas WHERE Q9 = 'Pouco') AS Pouco_Q9,
     (SELECT COUNT(Q9) FROM Respostas WHERE Q9 = 'Não') AS Nao_Q9;
     
+
+    SELECT 
+            COUNT(*) AS total,
+            Q1
+        FROM 
+            Answers
+        WHERE 
+            Q1 IN ('Profissionais_incapacitados', 'Distancia', 'Infraestrutura', 'Metodologia_de_Ensino')
+        GROUP BY 
+            Q1
+        ORDER BY 
+            total DESC;
+            
+SELECT categoria, respostas
+        FROM (
+            SELECT 'Sim' AS categoria, COUNT(Q2) AS respostas
+            FROM Answers
+            WHERE Q2 = 'Sim'
+            UNION ALL
+            SELECT 'Não' AS categoria, COUNT(Q2) AS respostas
+            FROM Answers
+            WHERE Q2 = 'Não'
+        ) AS subquery
+        ORDER BY respostas DESC;

@@ -1,39 +1,66 @@
-// Importa o módulo de configuração do banco de dados
 var database = require("../database/config");
 
+// Função para buscar a contagem de respostas para cada categoria de Q1
 function buscandoQ1() {
-    // Define a instrução SQL que conta as ocorrências de cada valor da coluna Q1 na tabela Answers
     var instrucaoSql = `
-       SELECT
-       (SELECT COUNT(Q1) FROM Answers WHERE Q1 = 'Profissionais incapacitados') AS Profissionais_incapacitados,
-       (SELECT COUNT(Q1) FROM Answers WHERE Q1 = 'Distancia') AS Distancia,
-       (SELECT COUNT(Q1) FROM Answers WHERE Q1 = 'Infraestrutura') AS Infraestrutura,
-       (SELECT COUNT(Q1) FROM Answers WHERE Q1 = 'Metodologia de Ensino') AS Metodologia_de_Ensino
-       ORDER BY 
-           Profissionais_incapacitados DESC, 
-           Distancia DESC, 
-           Infraestrutura DESC, 
-           Metodologia_de_Ensino DESC;
+        SELECT categoria, respostas
+        FROM (
+            SELECT 'Profissionais incapacitados' AS categoria, COUNT(Q1) AS respostas
+            FROM Answers
+            WHERE Q1 = 'Profissionais incapacitados'
+            UNION ALL
+            SELECT 'Distancia' AS categoria, COUNT(Q1) AS respostas
+            FROM Answers
+            WHERE Q1 = 'Distancia'
+            UNION ALL
+            SELECT 'Infraestrutura' AS categoria, COUNT(Q1) AS respostas
+            FROM Answers
+            WHERE Q1 = 'Infraestrutura'
+            UNION ALL
+            SELECT 'Metodologia de Ensino' AS categoria, COUNT(Q1) AS respostas
+            FROM Answers
+            WHERE Q1 = 'Metodologia de Ensino'
+        ) AS subquery
+        ORDER BY respostas DESC;
     `;
 
-    // Loga a instrução SQL no console
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-
-    // Executa a instrução SQL e retorna uma Promise
     return database.executar(instrucaoSql).then(response => {
-        // Loga o resultado da consulta no console
         console.log("Resultado da consulta: ", response);
-        // Retorna o resultado da consulta
         return response;
     }).catch(error => {
-        // Loga qualquer erro que ocorra durante a execução da consulta
         console.error("Erro na execução da consulta: ", error);
-        // Lança o erro para ser tratado posteriormente
+        throw error;
+    });
+}   
+
+// Função para buscar a contagem de respostas para cada categoria de Q2
+function buscandoQ2() {
+    var instrucaoSql = `
+       SELECT categoria, respostas
+        FROM (
+            SELECT 'Sim' AS categoria, COUNT(Q2) AS respostas
+            FROM Answers
+            WHERE Q2 = 'Sim'
+            UNION ALL
+            SELECT 'Não' AS categoria, COUNT(Q2) AS respostas
+            FROM Answers
+            WHERE Q2 = 'Não'
+        ) AS subquery
+        ORDER BY respostas DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql).then(response => {
+        console.log("Resultado da consulta: ", response);
+        return response;
+    }).catch(error => {
+        console.error("Erro na execução da consulta: ", error);
         throw error;
     });
 }
 
-// Exporta a função buscandoQ1 para que possa ser usada em outros módulos
+// Exporta as funções para uso em outros módulos
 module.exports = {
-    buscandoQ1
+    buscandoQ1,
+    buscandoQ2
 };
