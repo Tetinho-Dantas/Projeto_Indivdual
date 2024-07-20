@@ -46,39 +46,50 @@
         <!-- Primeira tela com imagem -->
         <div id="tela1">
             <p id="p_tela1">
-                <img class="foto" src="./imagens/dia-do-autismo-a-importancia-da-educacao-infantil-para-alunos-com-o-transtorno_g.png" alt="imagem do autismo">
+                <img class="foto"
+                    src="./imagens/dia-do-autismo-a-importancia-da-educacao-infantil-para-alunos-com-o-transtorno_g.png"
+                    alt="imagem do autismo">
             </p>
         </div>
-        
+
         <!-- Segunda tela com links para dashboards e mural -->
         <div id="tela2">
             <div class="left">
-                <div class="desc_dash">
+                <div class="desc_quiz">
                     <h1>Quiz do Projeto</h1>
-                    <p>O quiz do seu projeto é uma ferramenta interativa composta por 9 perguntas, cada uma com 4 respostas possíveis. Ele foi desenvolvido para coletar e analisar as opiniões dos usuários sobre diversos temas. Os resultados são apresentados em gráficos de pizza, permitindo uma visualização clara de quantas respostas foram selecionadas para cada alternativa. O objetivo do quiz é engajar os usuários, promover a reflexão e fornecer dados valiosos para análise.</p>
+                    <p>
+                        O quiz do projeto é uma ferramenta interativa com dois questionários para entender os desafios na educação inclusiva. O primeiro foca em problemas como capacitação de profissionais, infraestrutura e metodologias de ensino. O segundo visa compreender as necessidades dos pais de crianças com necessidades especiais, coletando opiniões sobre o apoio necessário. Essa ferramenta coleta dados valiosos para formular estratégias e projetos eficazes, alinhando as soluções às necessidades da comunidade.
+                    </p>
                 </div>
-                <div class="button_dash"><a href="./quiz.html">Quiz</a></div>
+                <div class="button_quiz"><a href="./quiz.html">Quiz</a></div>
             </div>
             <div class="right">
                 <div class="desc_mural">
                     <h1>Mural</h1>
-                    <p>O mural de avisos do seu projeto é uma plataforma dinâmica onde atualizações, notificações importantes e mensagens podem ser compartilhadas com os usuários. Ele serve como um ponto central de comunicação, garantindo que todos estejam informados sobre eventos, mudanças e outras informações relevantes. O mural facilita a interação e mantém os usuários atualizados, fortalecendo a comunidade em torno do seu projeto.</p>
+                    <p>O mural de avisos do projeto é uma plataforma dinâmica onde atualizações, notificações
+                        importantes e mensagens podem ser compartilhadas com os usuários. Ele serve como um ponto
+                        central de comunicação, garantindo que todos estejam informados sobre eventos, mudanças e outras
+                        informações relevantes. O mural facilita a interação e mantém os usuários atualizados,
+                        fortalecendo a comunidade em torno do seu projeto.</p>
                 </div>
                 <div class="button_mural"><a href="./mural.html">Mural</a></div>
             </div>
         </div>
     </section>
+    
 
     <!-- Seção adicional -->
     <section class="hom">
         <!-- Ranking com quatro elementos -->
+         <div class="esquerda">
         <div class="ranking">
             <div class="pr" id="rank1"></div>
             <div class="pr" id="rank2"></div>
             <div class="pr" id="rank3"></div>
             <div class="pr" id="rank4"></div>
         </div>
-
+    </div>
+    <div class="direita">
         <!-- Informações do gráfico -->
         <div class="chart-info">
             <div class="sim">
@@ -90,6 +101,21 @@
                 <p>Não</p>
             </div>
         </div>
+
+        <div class="caixa_dash">
+            <div class="right_dash">
+                <div class="desc_dash">
+                    <h1>Dashboard</h1>
+                    <p>O mural de avisos do projeto é uma plataforma dinâmica onde atualizações, notificações
+                        importantes e mensagens podem ser compartilhadas com os usuários. Ele serve como um ponto
+                        central de comunicação, garantindo que todos estejam informados sobre eventos, mudanças e outras
+                        informações relevantes. O mural facilita a interação e mantém os usuários atualizados,
+                        fortalecendo a comunidade em torno do seu projeto.</p>
+                </div>
+                <div class="button_dash"><a href="./dash.html">Dash</a></div>
+            </div>
+        </div>
+    </div>
     </section>
 
     <!-- Rodapé -->
@@ -103,7 +129,8 @@
             </div>
             <!-- LinkedIn -->
             <div id="linkedin">
-                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
+                <a href="https://www.linkedin.com/in/luiz-gustavo-dantas-da-cunha-b23a601b5/"><img
+                        src="imagens/logotipo-do-linkedin.png" alt="linkedin"></a>
                 <h2 class="tituloFooter">LinkedIn</h2>
                 <p class="subtituloFooter">@LuizGustavoDantas</p>
             </div>
@@ -123,13 +150,13 @@
 <script>
     // Função para buscar e exibir o ranking
     function buscarRanking() {
-            // Fazendo uma requisição GET para buscar as posições do ranking
-            fetch("/result/buscandoQ1", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            })
+        // Fazendo uma requisição GET para buscar as posições do ranking
+        fetch("/result/buscandoQ1", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
@@ -156,20 +183,20 @@
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        }
+    }
 
-        // Chama a função buscarRanking quando a página é carregada
-        document.addEventListener('DOMContentLoaded', buscarRanking);
+    // Chama a função buscarRanking quando a página é carregada
+    document.addEventListener('DOMContentLoaded', buscarRanking);
 
-         // Função para buscar e atualizar as porcentagens de "Sim" e "Não"
-         function buscarPorcentagens() {
-            // Fazendo uma requisição GET para buscar as contagens de respostas
-            fetch("/result/buscandoQ2", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                }
-            })
+    // Função para buscar e atualizar as porcentagens de "Sim" e "Não"
+    function buscarPorcentagens() {
+        // Fazendo uma requisição GET para buscar as contagens de respostas
+        fetch("/result/buscandoQ2", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
@@ -199,11 +226,8 @@
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        }
+    }
 
-        // Chama a função buscarPorcentagens quando a página é carregada
-        document.addEventListener('DOMContentLoaded', buscarPorcentagens);
-    </script>
-    
-    
-   
+    // Chama a função buscarPorcentagens quando a página é carregada
+    document.addEventListener('DOMContentLoaded', buscarPorcentagens);
+</script>

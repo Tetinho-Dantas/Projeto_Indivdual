@@ -1,20 +1,3 @@
-@font-face {
-   font-family: 'kgprimary';
-   src: url('/site_institucional/fonts/KGPrimaryItalics.ttf');
-}
-
-@font-face {
-   font-family: 'raspberie';
-   src: url('/site_institucional/fonts/RaspberiePersonalUseOnly.ttf');
-}
-
-@font-face {
-   font-family: 'Poetsen';
-   src: url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
-}
-
-
-
 html{
     height: 100%;
     width: 100%;
@@ -26,7 +9,7 @@ body{
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'kgprimary', sans-serif;
+    font-family: 'Fira sans', sans-serif;
 }
  #navbar{
     width: 100%;
@@ -200,7 +183,6 @@ body{
 
  }
  #p_tela1{
-    font-family: 'Poetsen',sans-serif;
     font-size: 70px;
     color: #884788;
     margin-top: -20px;

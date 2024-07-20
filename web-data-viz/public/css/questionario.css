@@ -199,7 +199,7 @@ legend {
 
 .botao {
    display: block;
-   width: 40%;
+   width: 15%;
    padding: 10px;
    font-size: 16px;
    color: white;
@@ -210,6 +210,10 @@ legend {
    transition: background-color 0.3s, box-shadow 0.3s;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    margin-top: 20px;
+   bottom: 50px; /* Posicionamento no fundo */
+   right: 65px; /* Posicionamento à esquerda */
+   position: absolute;
+
    
 }
 

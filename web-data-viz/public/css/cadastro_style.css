@@ -160,6 +160,7 @@ h1 {
     font-size: 14px; /* Tamanho da fonte */
     color: #333; /* Cor do texto */
     z-index: 10; /* Z-index para sobrepor outros elementos */
+    text-align: left; /* alinha o texto para esquerda*/
 }
 
 /* Exibir tooltip ao passar o cursor sobre o campo de senha */

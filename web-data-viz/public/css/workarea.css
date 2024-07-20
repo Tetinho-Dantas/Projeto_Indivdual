@@ -169,7 +169,7 @@ body {
 }
 
 /* Estilo das descrições de dashboard e mural */
-.desc_dash, .desc_mural {
+.desc_quiz, .desc_mural {
   font-size: 18px; /* Tamanho da fonte */
   height: 75%; /* Altura */
   width: 80%; /* Largura */
@@ -181,7 +181,7 @@ body {
 }
 
 /* Estilo base para classes .button_mural e .button_dash */
-.button_mural, .button_dash {
+.button_mural, .button_quiz {
   border-radius: 30px; /* Bordas arredondadas */
   height: 8%; /* Altura do botão */
   width: 65%; /* Largura do botão */
@@ -195,7 +195,7 @@ body {
 }
 
 /* Estilo para os links dentro dos botões */
-.button_mural a, .button_dash a {
+.button_mural a, .button_quiz a {
   font-style: normal; /* Estilo normal da fonte */
   text-decoration: none; /* Sem decoração de texto (sublinhado) */
   margin-top: 50px; /* Espaçamento superior */
@@ -215,38 +215,60 @@ body {
   background-color: rgb(215, 192, 228); /* Cor de fundo */
 }
 
+.direita {
+  height: 90vh; /* Altura */
+  width: 80%; /* Largura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+
+}
+
+/* Estilo da seção à direita na tela 2 */
+.esquerda {
+  height: 90vh; /* Altura */
+  width: 35%; /* Largura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: column; /* Orientação dos itens na coluna */
+  align-items: start; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+ 
+
+}
+
 /* Estilo da seção ranking */
 .ranking {
   display: flex; /* Usa Flexbox para layout */
   flex-direction: column; /* Orientação dos itens na coluna */
   align-items: center; /* Alinha itens verticalmente ao centro */
   justify-content: center; /* Alinha itens horizontalmente ao centro */
-  background-color: rgb(236, 181, 234); /* Cor de fundo */
-  padding: 20px; /* Preenchimento */
-  width: 20%; /* Largura */
-  height: 90%; /* Altura */
-  gap: 30px; /* Espaçamento entre itens */
-  margin-left: 2%; /* Margem esquerda */
-  border-radius: 10px;
-  box-shadow: 0px 10px 20px #ca96ca;
+  background-color: rgb(236, 181, 234); /* Define a cor de fundo */
+  padding: 20px; /* Define o preenchimento interno */
+  width: 60%; /* Define a largura do elemento */
+  height: 90%; /* Define a altura do elemento */
+  gap: 30px; /* Define o espaçamento entre os itens */
+  margin-left: 10%; /* Define a margem esquerda */
+  border-radius: 10px; /* Define bordas arredondadas */
+  box-shadow: 0px 10px 20px #ca96ca; /* Adiciona uma sombra ao redor do elemento */
 }
 
 /* Estilo dos itens de ranking */
 .pr {
-  background-color: rgb(250, 237, 255); /* Cor de fundo */
-  margin-bottom: 10px; /* Margem inferior */
-  padding: 10px; /* Preenchimento */
-  width: 95%; /* Largura */
-  height: 120px; /* Altura */
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra */
-  font-size: 20px;
-  font-weight: bold;
-  color: #811181;
-  text-align: center;
-  border-radius: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  
+  background-color: rgb(250, 237, 255); /* Define a cor de fundo */
+  margin-bottom: 10px; /* Define a margem inferior */
+  padding: 10px; /* Define o preenchimento interno */
+  width: 95%; /* Define a largura do elemento */
+  height: 120px; /* Define a altura do elemento */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao redor do elemento */
+  font-size: 20px; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a espessura da fonte */
+  color: #811181; /* Define a cor do texto */
+  text-align: center; /* Alinha o texto ao centro */
+  border-radius: 10px; /* Define bordas arredondadas */
+  font-family: Arial, Helvetica, sans-serif; /* Define a família da fonte */
 }
+
 
 /* Estilo das informações do gráfico */
 .chart-info {
@@ -273,6 +295,50 @@ body {
   box-shadow: 0px 10px 20px #946794;
 }
 
+.right_dash {
+  width: 100%; /* Largura */
+  display: flex; /* Usa Flexbox para layout */
+  flex-direction: row; /* Orientação dos itens na coluna */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  justify-content: center; /* Alinha itens horizontalmente ao centro */
+  gap: 10px; /* Espaçamento entre itens */
+}
+.desc_dash {
+  font-size: 18px; /* Define o tamanho da fonte */
+  height: 200px; /* Define a altura do elemento */
+  width: 800px; /* Define a largura do elemento */
+  border: 10px solid #884788; /* Define a largura, estilo e cor da borda */
+  border-radius: 10px; /* Define as bordas arredondadas */
+  background: #e9cbf0; /* Define a cor de fundo */
+  text-align: start; /* Alinha o texto à esquerda */
+  padding: 40px; /* Define o preenchimento interno */
+  margin-bottom: 30px; /* Define a margem inferior */
+  display: flex; /* Define o tipo de exibição flexível */
+  flex-direction: column; /* Define a direção do eixo principal como coluna */
+  align-items: start; /* Alinha os itens ao início do eixo transversal (esquerda) */
+}
+
+
+.button_dash{
+  border-radius: 30px; /* Bordas arredondadas */
+  height: 8%; /* Altura do botão */
+  width: 15%; /* Largura do botão */
+  text-align: center; /* Alinhamento do texto no centro */
+  font-size: 28px; /* Tamanho da fonte */
+  align-items: center; /* Alinha itens verticalmente ao centro */
+  background:  #81426793; /* Cor de fundo com transparência */
+  box-shadow: 0px 10px 20px #ca96ca; /* Sombra */
+  font-style: normal; /* Estilo normal da fonte */
+  border: #520a52 5px solid; /* Borda sólida com cor */
+
+}
+
+.button_dash a {
+  font-style: normal; /* Estilo normal da fonte */
+  text-decoration: none; /* Sem decoração de texto (sublinhado) */
+  margin-top: 50px; /* Espaçamento superior */
+  color: white; /* Cor do texto branca */
+}
 
 /* ==================================================================================================================== */
 /* Estilo do rodapé */
