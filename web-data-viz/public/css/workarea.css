@@ -251,6 +251,7 @@ body {
   margin-left: 10%; /* Define a margem esquerda */
   border-radius: 10px; /* Define bordas arredondadas */
   box-shadow: 0px 10px 20px #ca96ca; /* Adiciona uma sombra ao redor do elemento */
+  border: #520a52 4px solid;
 }
 
 /* Estilo dos itens de ranking */
@@ -267,6 +268,7 @@ body {
   text-align: center; /* Alinha o texto ao centro */
   border-radius: 10px; /* Define bordas arredondadas */
   font-family: Arial, Helvetica, sans-serif; /* Define a família da fonte */
+  border: #d8badf 1.9px solid;
 }
 
 

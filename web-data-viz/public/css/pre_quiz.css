@@ -53,3 +53,17 @@ body {
     background-color: #250425;
     color: white;
 }
+
+.voltar {
+    position: absolute;
+    top: 55px;
+    left: 460px;
+
+}
+
+.img2 {
+    width: 60%;
+    cursor: pointer;
+    
+
+}
