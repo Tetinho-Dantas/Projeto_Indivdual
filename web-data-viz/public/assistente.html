@@ -6,13 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASSISTENTE VIRTUAL</title>
+    <!-- Link para o arquivo CSS externo -->
     <link rel="stylesheet" href="css/style-bob.css">
+    <!-- Pré-conexões para melhorar o desempenho ao carregar fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Link para a fonte Montserrat do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Navbar com logo e links de navegação -->
     <div id="navbar">
         <div id="nav_logo">
             <img id="logo" src="./imagens/SpecialE.png" alt="SpecialE">
@@ -26,6 +30,7 @@
             <a id="link_login" class="link-button" href="login.html">Login</a>
         </div>
     </div>
+    <!-- Container principal com campo de input e botões -->
     <div class="father">
         <div class="image-container">
             <p>Eu sou o Assistente Virtual, como posso ajudar você?</p>
@@ -65,6 +70,7 @@ async function gerarResposta() {
     document.getElementById('idPergunta').value = ""; // Limpa o campo de pergunta
 
     try {
+        // Faz uma solicitação POST para o servidor com a pergunta
         const response = await fetch('http://localhost:3334/perguntar', {
             method: 'POST',
             headers: {
@@ -166,7 +172,5 @@ document.getElementById('idPergunta').addEventListener('keypress', function(even
         gerarResposta(); // Chama a função para gerar a resposta ao pressionar "Enter"
     }
 });
-
-
 
 </script>

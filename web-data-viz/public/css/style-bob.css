@@ -1,27 +1,25 @@
 @font-face {
     font-family: 'Digital_play';
-    src: url('/digital_play_st/00copyfont.woff2') format('woff2'),
-         url('/digital_play_st/Digital\ Play\ Hollow\ St.ttf') format('truetype'),
-         url('/digital_play_st/Digital\ Play\ Italic\ St.ttf') format('truetype'),
-         url('/digital_play_st/Digital\ Play\ St.ttf') format('truetype');
+    src: url('/digital_play_st/00copyfont.woff2') format('woff2'), /* Fonte no formato woff2 */
+         url('/digital_play_st/Digital\ Play\ Hollow\ St.ttf') format('truetype'), /* Fonte no formato truetype */
+         url('/digital_play_st/Digital\ Play\ Italic\ St.ttf') format('truetype'), /* Fonte no formato truetype */
+         url('/digital_play_st/Digital\ Play\ St.ttf') format('truetype'); /* Fonte no formato truetype */
     font-weight: normal;
     font-style: normal;
 }
 
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat","Digital_play", sans-serif;
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui a borda e o preenchimento no tamanho total dos elementos */
+    font-family: "Montserrat","Digital_play", sans-serif; /* Define a família de fontes padrão */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(236, 181, 234);
-    height: 87vh;
-    margin: 0;
+    font-family: Arial, sans-serif; /* Fonte padrão do corpo */
+    background-color: rgb(236, 181, 234); /* Cor de fundo do corpo */
+    height: 87vh; /* Altura do corpo */
+    margin: 0; /* Remove a margem padrão */
 }
 
 /* Barra de Navegação */
@@ -37,9 +35,9 @@ body {
     border-bottom: 3px solid; /* Borda inferior */
     border-image: linear-gradient(to right, rgb(89, 0, 255), rgb(183, 0, 255), rgb(255, 0, 242)); /* Gradiente da borda */
     border-image-slice: 1; /* Define como o gradiente é aplicado à borda */
-  }
-  
-  #nav_link {
+}
+
+#nav_link {
     width: 70%; /* Largura do container de links */
     height: 100%; /* Altura do container de links */
     display: flex; /* Usa Flexbox para layout */
@@ -48,40 +46,40 @@ body {
     gap: 10%; /* Espaçamento entre links */
     flex-direction: row; /* Orientação dos itens na linha */
     padding-right: 5%; /* Preenchimento à direita */
-  }
-  
-  /* Estilo dos links na barra de navegação */
-  .link {
+}
+
+/* Estilo dos links na barra de navegação */
+.link {
     text-decoration: none; /* Remove sublinhado dos links */
     color: black; /* Cor do texto dos links */
-  }
-  
-  .link:hover {
+}
+
+.link:hover {
     text-decoration: underline; /* Sublinha o link ao passar o mouse */
     color: rgb(78, 20, 95); /* Muda a cor do texto ao passar o mouse */
-  }
-  
-  /* Estilo específico para os links Home e Serviços */
-  #link_home, #link_servicos {
+}
+
+/* Estilo específico para os links Home e Serviços */
+#link_home, #link_servicos {
     display: flex; /* Usa Flexbox para layout */
     align-items: center; /* Alinha itens verticalmente ao centro */
     font-size: 1.5vw; /* Tamanho da fonte */
     color: #884788; /* Cor do texto */
     font-style: normal; /* Estilo da fonte */
-  }
-  
-  #link_home {
+}
+
+#link_home {
     width: 5vw; /* Largura específica para o link home */
     height: 2.5vw; /* Altura específica para o link home */
-  }
-  
-  #link_servicos {
+}
+
+#link_servicos {
     width: 6.2vw; /* Largura específica para o link serviços */
     height: 2.5vw; /* Altura específica para o link serviços */
-  }
-  
-  /* Estilo do botão de link na barra de navegação */
-  .link-button {
+}
+
+/* Estilo do botão de link na barra de navegação */
+.link-button {
     display: inline-flex; /* Usa Flexbox para layout */
     align-items: center; /* Alinha itens verticalmente ao centro */
     font-size: 1.5vw; /* Tamanho da fonte */
@@ -94,30 +92,30 @@ body {
     cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Animações de transição */
     text-decoration: none; /* Remove sublinhado dos links */
-  }
-  
-  .link-button:hover {
+}
+
+.link-button:hover {
     background-color: #884788; /* Cor de fundo ao passar o mouse */
     border-color: rgb(236, 181, 234); /* Cor da borda ao passar o mouse */
     color: white; /* Cor do texto ao passar o mouse */
-  }
-  
-  /* Estilo do container do logo na barra de navegação */
-  #nav_logo {
+}
+
+/* Estilo do container do logo na barra de navegação */
+#nav_logo {
     display: flex; /* Usa Flexbox para layout */
     align-items: center; /* Alinha itens verticalmente ao centro */
     justify-content: center; /* Alinha itens horizontalmente ao centro */
     width: 15%; /* Largura do container do logo */
     height: 100%; /* Altura do container do logo */
-  }
-  
-  /* Estilo do logo na barra de navegação */
-  #logo {
+}
+
+/* Estilo do logo na barra de navegação */
+#logo {
     height: 90%; /* Altura do logo */
-  }
-  
-  /* Estilo da seção Home */
-  .home {
+}
+
+/* Estilo da seção Home */
+.home {
     width: 100%; /* Largura total */
     height: 100%; /* Altura total */
     display: flex; /* Usa Flexbox para layout */
@@ -126,148 +124,142 @@ body {
     flex-direction: row; /* Orientação dos itens na linha */
     gap: 2.5%; /* Espaçamento entre itens */
     background-color: #f3ddf8; /* Cor de fundo */
-  }
-  
+}
 
 h1, h2 {
-    color: #ffffff;
+    color: #ffffff; /* Cor dos títulos */
 }
 
 h1 {
-    font-size: 45px;
+    font-size: 45px; /* Tamanho da fonte do título principal */
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 25px; /* Tamanho da fonte do subtítulo */
 }
 
 .father {
-    display: flex;
-    height: 100%;
-    width: 100%;
+    display: flex; /* Usa Flexbox para layout */
+    height: 100%; /* Altura total */
+    width: 100%; /* Largura total */
 }
 
 .image-container {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-    background: rgb(236, 181, 234);
-   
+    padding: 10px; /* Preenchimento */
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Orientação dos itens na coluna */
+    align-items: center; /* Alinha itens horizontalmente ao centro */
+    justify-content: center; /* Alinha itens verticalmente ao centro */
+    width: 30%; /* Largura do container da imagem */
+    background: rgb(236, 181, 234); /* Cor de fundo */
 }
 
 .image-container .image img {
-    width: 450px;
+    width: 450px; /* Largura da imagem */
 }
 
 .image-container p {
-    color: #ffffff;
-  
-    font-size: 2rem;
+    color: #ffffff; /* Cor do texto */
+    font-size: 2rem; /* Tamanho da fonte */
 }
 
 .father-resposta {
-    width: 70%;
-    position: relative;
+    width: 70%; /* Largura do container de resposta */
+    position: relative; /* Posição relativa */
 }
 
 .father2-resposta {
-    width: 100%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%; /* Largura total */
+    height: 85%; /* Altura */
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Orientação dos itens na coluna */
+    justify-content: center; /* Alinha itens verticalmente ao centro */
+    align-items: center; /* Alinha itens horizontalmente ao centro */
 }
 
 .container {
-    height: 15%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+    height: 15%; /* Altura */
+    width: 100%; /* Largura total */
+    display: flex; /* Usa Flexbox para layout */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    justify-content: center; /* Alinha itens horizontalmente ao centro */
+    z-index: 1; /* Nível de empilhamento */
 }
 
 input {
-    width: 80%;
-    padding: 15px;
-    border-radius: 6px;
-    font-size: 18px;
-    background-color: rgb(218, 157, 215);
-    color: #ffffff;
-    border: 2px solid #884788;
-    outline: none;
-    transition: all 0.3s ease;
+    width: 80%; /* Largura do campo de input */
+    padding: 15px; /* Preenchimento */
+    border-radius: 6px; /* Bordas arredondadas */
+    font-size: 18px; /* Tamanho da fonte */
+    background-color: rgb(218, 157, 215); /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: 2px solid #884788; /* Borda */
+    outline: none; /* Remove o contorno padrão */
+    transition: all 0.3s ease; /* Transição suave para todas as mudanças */
 }
 
 input:hover {
-    box-shadow: 0px 0px 32px -22px #884788;
+    box-shadow: 0px 0px 32px -22px #884788; /* Sombra ao passar o mouse */
 }
 
 input:focus {
-    border: 2px solid #884788;
-    box-shadow: 0px 0px 37px -18px #884788;
+    border: 2px solid #884788; /* Borda ao focar */
+    box-shadow: 0px 0px 37px -18px #884788; /* Sombra ao focar */
 }
 
 button {
-    margin: 0 0 0 -47px;
-    padding: 9px 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color:  #884788;
-    color: #ffffff;
-    border: none;
-    transition: background-color 0.3s ease;
+    margin: 0 0 0 -47px; /* Margem */
+    padding: 9px 10px; /* Preenchimento */
+    border-radius: 50%; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    background-color: #884788; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: none; /* Sem borda */
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
 }
 
 button:hover {
-    background-color:#9e689e;
+    background-color: #9e689e; /* Cor de fundo ao passar o mouse */
 }
 
 #micButton {
-    margin-left: 10px;
+    margin-left: 10px; /* Margem à esquerda */
 }
 
 #micButton img, button img {
-    width: 24px;
-    height: 24px;
+    width: 24px; /* Largura da imagem */
+    height: 24px; /* Altura da imagem */
 }
 
 #resposta {
-    height: 25%;
-    width: 80%;
-    color: white;
-    text-align: start;
-    display: none;
-    padding: 0 60px;
-    border-radius: 15px;
+    height: 25%; /* Altura */
+    width: 80%; /* Largura */
+    color: white; /* Cor do texto */
+    text-align: start; /* Alinhamento do texto */
+    display: none; /* Inicialmente escondido */
+    padding: 0 60px; /* Preenchimento */
+    border-radius: 15px; /* Bordas arredondadas */
 }
 
 .blur {
-    width: 200px;
-    height: 300px;
-    position: absolute;
-    background-color: #884788;
-    top: 0;
-    left: 75%;
-    border-radius: 0 0 30% 30%;
-    filter: blur(90px);
-    z-index: -1;
+    width: 200px; /* Largura */
+    height: 300px; /* Altura */
+    position: absolute; /* Posição absoluta */
+    background-color: #884788; /* Cor de fundo */
+    top: 0; /* Posição no topo */
+    left: 75%; /* Posição à esquerda */
+    border-radius: 0 0 30% 30%; /* Bordas arredondadas parciais */
+    filter: blur(90px); /* Efeito de desfoque */
+    z-index: -1; /* Nível de empilhamento */
 }
 
 .voltar {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-
+    position: absolute; /* Posição absoluta */
+    top: 10px; /* Posição no topo */
+    left: 10px; /* Posição à esquerda */
 }
 
 .img2 {
-    width: 60%;
-    cursor: pointer;
-    
-
+    width: 60%; /* Largura */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
 }
